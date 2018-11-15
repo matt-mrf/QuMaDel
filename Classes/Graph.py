@@ -1,5 +1,6 @@
 from node import Node
 
+
 class Graph:
     """
     Graph class, representing a country with provinces or states
@@ -11,21 +12,27 @@ class Graph:
         adjecency list
         """
         self.graph = graph_dict
-        self.nodes = []
+        self.nodes = {}
 
     def create_nodes(self):
         """
         creates nodes and connects them in the graph
         """
+        # create all node objects
         for node in self.graph:
-            node_obj = Node(node)
-            self.nodes.append(node_obj)
+            node_obj = Node(node, self.graph[node])
+            # add node object with name as index
+            self.nodes[node] = node_obj
 
-
-    def add_neighbours(self):
+        # replace neighbour names with objects
         for node in self.nodes:
-            print(node.name)
-
+            obj = self.nodes[node]
+            for neighbour in obj.neighbours:
+                n_list = neighbour
+                neighbour = []
+                for object in n_list:
+                    neighbour.append(self.nodes[object])
+                obj.neighbours = neighbour
 
 
 if __name__ == "__main__":
@@ -57,4 +64,3 @@ if __name__ == "__main__":
 
     graph_ukraine = Graph(ukraine)
     graph_ukraine.create_nodes()
-    graph_ukraine.add_neighbours()
