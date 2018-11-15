@@ -23,7 +23,8 @@ class Node:
         self.color = given_color
 
 
-    def add_neighbour(self, Node)
+    def add_neighbour(self, Node):
+        pass
 
 
 if __name__ == "__main__":

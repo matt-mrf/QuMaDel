@@ -18,7 +18,7 @@ class Graph:
         creates nodes and connects them in the graph
         """
         for node in self.graph:
-            print(node)
+            print(self.graph)
 
 
 if __name__ == "__main__":
