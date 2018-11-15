@@ -5,7 +5,7 @@ class Node:
     countries.
     """
 
-    def __init__(self, name, color, neighbours):
+    def __init__(self, name, color):
         """
         initialize object by giving it a dictonary representing the
         adjecency list
@@ -13,7 +13,7 @@ class Node:
 
         self.name = name
         self.color = color
-        self.neighbours = neighbours
+        self.neighbours = []
 
 
     def set_color(self, given_color):
@@ -21,6 +21,9 @@ class Node:
         sets the color of a node
         """
         self.color = given_color
+
+
+    def add_neighbour(self, Node)
 
 
 if __name__ == "__main__":
