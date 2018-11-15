@@ -5,14 +5,14 @@ class Node:
     countries.
     """
 
-    def __init__(self, name, color):
+    def __init__(self, name):
         """
         initialize object by giving it a dictonary representing the
         adjecency list
         """
 
         self.name = name
-        self.color = color
+        self.color = "0"
         self.neighbours = []
 
 
@@ -26,6 +26,9 @@ class Node:
     def add_neighbour(self, Node):
         pass
 
+
+    def __repr__(self):
+        return f"Name: {self.name}, Color: {self.color}, Neighbours: {self.neighbours}"
 
 if __name__ == "__main__":
     node1 = Node("noord", "none", ["west", "oost"])
