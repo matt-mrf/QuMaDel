@@ -33,3 +33,4 @@ if __name__ == "__main__":
 
     print(node1.color)
     print(node3.color)
+    print("hallo")
