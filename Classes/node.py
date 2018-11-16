@@ -23,9 +23,6 @@ class Node:
         self.color = given_color
 
 
-    def add_neighbour(self, Node):
-        pass
-
 
     def __repr__(self):
-        return f"Name: {self.name}, Color: {self.color}, neighbours: {self.neighbours}"
+        return f"Name: {self.name}, Color: {self.color}"

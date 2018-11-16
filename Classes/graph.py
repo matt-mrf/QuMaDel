@@ -14,7 +14,7 @@ class Graph:
         self.graph = graph_dict
         self.nodes = {}
 
-    def create_nodes(self):
+    def create_graph(self):
         """
         creates nodes and connects them in the graph
         """
@@ -27,12 +27,12 @@ class Graph:
         # replace neighbour names with objects
         for node in self.nodes:
             obj = self.nodes[node]
-            for neighbour in obj.neighbours:
-                n_list = neighbour
-                neighbour = []
-                for object in n_list:
-                    neighbour.append(self.nodes[object])
-                obj.neighbours = neighbour
+            n_list = obj.neighbours
+            obj.neighbours = []
+            for neighbour in n_list:
+                neighbour_obj = self.nodes[neighbour]
+                obj.neighbours.append(neighbour_obj)
+
 
 
 if __name__ == "__main__":
@@ -63,4 +63,4 @@ if __name__ == "__main__":
     'Y': ['W', 'X']}
 
     graph_ukraine = Graph(ukraine)
-    graph_ukraine.create_nodes()
+    graph_ukraine.create_graph()
