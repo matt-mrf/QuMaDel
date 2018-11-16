@@ -30,4 +30,4 @@ input = {'A': ['F', 'B'],
 ukraine = Graph(input)
 ukraine.create_graph()
 
-print(ukraine.nodes["A"].neighbours)
+print(ukraine.nodes["I"].neighbours)

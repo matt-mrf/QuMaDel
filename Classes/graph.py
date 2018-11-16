@@ -27,9 +27,12 @@ class Graph:
         # replace neighbour names with objects
         for node in self.nodes:
             obj = self.nodes[node]
+            # copy names of neighbours to temp list
             n_list = obj.neighbours
             obj.neighbours = []
+            # go over letters in neighbours
             for neighbour in n_list:
+                # find the corresponding object
                 neighbour_obj = self.nodes[neighbour]
                 obj.neighbours.append(neighbour_obj)
 
