@@ -1,5 +1,7 @@
 from graph import Graph
 from node import Node
+from graph_checker import graph_checker
+import random
 
 input = {'A': ['F', 'B'],
 'B': ['A', 'F', 'E', 'D', 'C'],
@@ -30,4 +32,20 @@ input = {'A': ['F', 'B'],
 ukraine = Graph(input)
 ukraine.create_graph()
 
-print(ukraine.nodes["I"].neighbours)
+for key, node in ukraine.nodes.items():
+    color = random.randint(1, 5)
+    node.set_color(color)
+
+print(ukraine.nodes)
+
+gc = graph_checker(ukraine)
+counter = 0
+while not gc.found():
+    gc.check_graph()
+
+    for key, node in ukraine.nodes.items():
+        color = random.randint(1, 5)
+        node.set_color(color)
+
+    counter += 1
+print(counter)
