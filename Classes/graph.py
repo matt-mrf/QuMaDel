@@ -14,6 +14,7 @@ class Graph:
         self.graph = graph_dict
         self.nodes = {}
         self.counter = 0
+        self.neighbour_colors = []
 
     def create_graph(self):
         """
@@ -38,18 +39,18 @@ class Graph:
                 obj.neighbours.append(neighbour_obj)
 
 
-    def check_graph():
-        neighbour_colors = []
-        counter = 0
+    def check_graph(self):
+        self.counter = 0
         # check each node
-        for node in self.nodes:
+        for key, node in self.nodes.items():
             node_color = node.color
+            self.neighbour_colors = []
             # add neighbours' colors to neighbours list of node
             for neighbour in node.neighbours:
                 self.neighbour_colors.append(neighbour.color)
 
             if node.color in self.neighbour_colors:
-                counter += 1
+                self.counter += 1
 
 
         # print(f"amount of countries: {self.amount_of_countries}")
@@ -59,11 +60,22 @@ class Graph:
 
         # check to see if graph has nodes without conflicting
         # neighbouring nodes
-        if counter == 0:
+        if self.counter == 0:
             # output found graph per node
+            self.neighbour_colors = ["found"]
             return []
         else:
-            return counter
+            return [self.counter, []]
+
+
+    def found(self):
+        """
+        checks to see if graph is a valid graph
+        """
+        if self.neighbour_colors == ["found"]:
+            return True
+        else:
+            return False
 
 
 if __name__ == "__main__":
