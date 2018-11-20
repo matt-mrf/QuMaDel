@@ -1,0 +1,14 @@
+create graph
+
+set amount of colors
+
+find nodes with degree < amount of colors
+
+if found, remove, and put in stack.
+if not, pick node arbitrarily, (maybe with lowest degree?)
+
+now color nodes in stack order. Stack: Last In First Out
+  find color that's not used in adjecent nodes
+  // when a node is about to be colored that initially had degree > amount of colors
+  // there's no guarantee it can be colored in, try anyway, or leave uncolored
+if at the end there are nodes with no color, color them with an extra color.
