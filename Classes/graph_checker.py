@@ -31,8 +31,8 @@ class graph_checker:
         # check to see if graph has nodes without conflicting
         # neighbouring nodes
         if counter == 0:
-            print(self.neighbour_colors)
             self.neighbour_colors = ["found"]
+            # output found graph per node
             print(self.input.nodes)
 
 

@@ -37,7 +37,6 @@ class Graph:
                 obj.neighbours.append(neighbour_obj)
 
 
-
 if __name__ == "__main__":
     ukraine = {'A': ['F', 'B'],
     'B': ['A', 'F', 'E', 'D', 'C'],
