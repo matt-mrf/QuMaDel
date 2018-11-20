@@ -7,9 +7,9 @@ class graph_checker:
         self.graph = graph
 
 
-    def valid_neigbour(node):
-        for neighbour in self.graph.nodes[node]:
-            if neighbour.color != graph.
-                True
-            else:
-                False
+    # def valid_neigbour(node):
+    #     for neighbour in self.graph.nodes[node]:
+    #         if neighbour.color != graph.
+    #             True
+    #         else:
+    #             False
