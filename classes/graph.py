@@ -1,4 +1,4 @@
-from node import Node
+from classes.node import Node
 
 
 class Graph:
@@ -13,6 +13,8 @@ class Graph:
         """
         self.graph = graph_dict
         self.nodes = {}
+        self.counter = 0
+        self.neighbour_colors = []
 
     def create_graph(self):
         """
@@ -27,12 +29,53 @@ class Graph:
         # replace neighbour names with objects
         for node in self.nodes:
             obj = self.nodes[node]
+            # copy names of neighbours to temp list
             n_list = obj.neighbours
             obj.neighbours = []
+            # go over letters in neighbours
             for neighbour in n_list:
+                # find the corresponding object
                 neighbour_obj = self.nodes[neighbour]
                 obj.neighbours.append(neighbour_obj)
 
+
+    def check_graph(self):
+        self.counter = 0
+        # check each node
+        for key, node in self.nodes.items():
+            node_color = node.color
+            self.neighbour_colors = []
+            # add neighbours' colors to neighbours list of node
+            for neighbour in node.neighbours:
+                self.neighbour_colors.append(neighbour.color)
+
+            if node.color in self.neighbour_colors:
+                self.counter += 1
+
+
+        # print(f"amount of countries: {self.amount_of_countries}")
+        # print(f"amount of countries not right: {counter}")
+        # pct = float(counter / self.amount_of_countries * 100)
+        # print(f"percentage wrong: {pct}%")
+
+        # check to see if graph has nodes without conflicting
+        # neighbouring nodes
+        if self.counter == 0:
+            # output found graph per node
+            self.neighbour_colors = ["found"]
+            return []
+        else:
+            return [self.counter, []]
+
+
+    def found(self):
+        """
+        checks to see if graph is a valid graph
+        """
+        if self.neighbour_colors == ["found"]:
+            return True
+        else:
+            return False
 
 
 if __name__ == "__main__":
