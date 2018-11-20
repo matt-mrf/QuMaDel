@@ -88,5 +88,6 @@ while not in_graph.found():
 print(in_graph.check_graph())
 print(counter)
 
+
 for node in in_graph.nodes:
     print('name: ' + str(in_graph.nodes[node].name) + ' color: ' + str(in_graph.nodes[node].color))
