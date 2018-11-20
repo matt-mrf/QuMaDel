@@ -1,6 +1,6 @@
-from graph import Graph
-from node import Node
-from graph_checker import graph_checker
+from classes.graph import Graph
+from classes.node import Node
+from classes.graph_checker import graph_checker
 import random
 
 # input = {'A': ['F', 'B'],

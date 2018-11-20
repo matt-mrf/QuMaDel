@@ -1,4 +1,4 @@
-from node import Node
+from classes.node import Node
 
 
 class Graph:
@@ -13,6 +13,7 @@ class Graph:
         """
         self.graph = graph_dict
         self.nodes = {}
+        self.counter = 0
 
     def create_graph(self):
         """
@@ -35,6 +36,34 @@ class Graph:
                 # find the corresponding object
                 neighbour_obj = self.nodes[neighbour]
                 obj.neighbours.append(neighbour_obj)
+
+
+    def check_graph():
+        neighbour_colors = []
+        counter = 0
+        # check each node
+        for node in self.nodes:
+            node_color = node.color
+            # add neighbours' colors to neighbours list of node
+            for neighbour in node.neighbours:
+                self.neighbour_colors.append(neighbour.color)
+
+            if node.color in self.neighbour_colors:
+                counter += 1
+
+
+        # print(f"amount of countries: {self.amount_of_countries}")
+        # print(f"amount of countries not right: {counter}")
+        # pct = float(counter / self.amount_of_countries * 100)
+        # print(f"percentage wrong: {pct}%")
+
+        # check to see if graph has nodes without conflicting
+        # neighbouring nodes
+        if counter == 0:
+            # output found graph per node
+            return []
+        else:
+            return counter
 
 
 if __name__ == "__main__":
