@@ -1,6 +1,10 @@
-import csv
+import pandas as pd
+import numpy as np
+import networkx as nx
+import matplotlib.pyplot as plt
 
-input = {
+
+graph = {
 'A': ['F', 'B'],
 'B': ['A', 'F', 'E', 'D', 'C'],
 'C': ['B', 'D'],
@@ -27,20 +31,8 @@ input = {
 'X': ['V', 'U', 'W', 'Y'],
 'Y': ['W', 'X']
 }
-
-with open('ukraine.csv', 'w', newline='') as outfile:
-    writer = csv.writer(outfile)
-
-    for node in input:
-        lijstje = ",".join(input[node])
-        writer.writerow([node, lijstje])
-
-data = {}
-with open('ukraine.csv', newline='') as csvfile:
-    reader = csv.reader(csvfile)
-    for row in reader:
-        # row[0] is de key
-        # row[1] is de lijst met adjecent nodes
-        data[row[0]] = row[1].split(",")
-
-    print(data)
+# Build a dataframe with 4 connections
+G = nx.from_dict_of_lists(graph)
+# Plot it
+nx.draw(G, with_labels=True)
+plt.show()

@@ -1,8 +1,8 @@
 from classes.graph import Graph
 from classes.node import Node
-from classes.graph_checker import graph_checker
 import random
 
+# simple graph
 # input = {"A":["B", "E"],
 # "B":["A","C","E"],
 # "C":["B","D"],
@@ -11,6 +11,7 @@ import random
 # "F":["E"],
 # }
 
+# ukraine
 input = {'A': ['F', 'B'],
 'B': ['A', 'F', 'E', 'D', 'C'],
 'C': ['B', 'D'],
@@ -37,6 +38,7 @@ input = {'A': ['F', 'B'],
 'X': ['V', 'U', 'W', 'Y'],
 'Y': ['W', 'X']}
 
+# china
 # input = {
 # '1':['2','4','6'],
 # '2':['1','4','5','3'],
@@ -82,5 +84,10 @@ while not in_graph.found():
 
     in_graph.check_graph()
     counter += 1
+
 print(in_graph.check_graph())
 print(counter)
+
+
+for node in in_graph.nodes:
+    print('name: ' + str(in_graph.nodes[node].name) + ' color: ' + str(in_graph.nodes[node].color))
