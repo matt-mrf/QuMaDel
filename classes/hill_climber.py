@@ -34,15 +34,18 @@ class hill_climber:
 
                 leftover_colors = (self.diff(self.all_colors, neighbour_colors))
                 # print(leftover_colors)
-                new_color = self.apply_color(leftover_colors)
+                if leftover_colors == []:
+                    pass
+                else:
+                    new_color = self.apply_color(leftover_colors)
 
 
-                # print("----------")
-                # print(f" old: {gc[1][0][i].color}")
-                gc[1][0][0].color = new_color
-                # print(gc[1][0][i].color)
-                i += 1
-                self.input.check_graph()
+                    # print("----------")
+                    # print(f" old: {gc[1][0][i].color}")
+                    gc[1][0][i].color = new_color
+                    # print(gc[1][0][i].color)
+                    i += 1
+                    self.input.check_graph()
 
 
         pp = pprint.PrettyPrinter()
