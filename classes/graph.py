@@ -15,6 +15,7 @@ class Graph:
         self.nodes = {}
         self.counter = 0
         self.neighbour_colors = []
+        self.wrong_nodes = []
 
     def create_graph(self):
         """
@@ -41,6 +42,7 @@ class Graph:
 
     def check_graph(self):
         self.counter = 0
+        self.wrong_nodes = []
         # check each node
         for key, node in self.nodes.items():
             node_color = node.color
@@ -51,6 +53,9 @@ class Graph:
 
             if node.color in self.neighbour_colors:
                 self.counter += 1
+                self.wrong_nodes.append(node)
+
+
 
 
         # print(f"amount of countries: {self.amount_of_countries}")
@@ -65,7 +70,8 @@ class Graph:
             self.neighbour_colors = ["found"]
             return []
         else:
-            return [self.counter, []]
+            return [self.counter, [self.wrong_nodes]]
+            print(wrong_nodes)
 
 
     def found(self):
