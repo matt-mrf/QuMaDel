@@ -7,6 +7,7 @@ class hill_climber:
     Uses an already made graph, and optimalises it by changing
     the color of the neighbours and checking the result
     """
+    last_cost = 1000
 
 
     def __init__(self, input):
@@ -23,7 +24,6 @@ class hill_climber:
         gc = self.input.check_graph()
         while not self.input.found():
             gc = self.input.check_graph()
-            print(gc[0], gc[1])
             i = 0
             for node in self.input.wrong_nodes:
                 neighbour_colors = []
@@ -37,8 +37,13 @@ class hill_climber:
                     gc[1][0][i].color = new_color
                     i += 1
 
-        pp = pprint.PrettyPrinter()
-        pp.pprint(self.input.nodes)
+        # pp = pprint.PrettyPrinter()
+        # pp.pprint(self.input.nodes)
+        new_cost = self.input.costs()
+        if new_cost < self.last_cost:
+            self.last_cost = new_cost
+        print(self.last_cost)
+
 
 
     def apply_color (self, leftover_colors):

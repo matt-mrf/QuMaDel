@@ -3,13 +3,13 @@ from classes.node import Node
 from classes.hill_climber import hill_climber
 import random
 
-# input = {"A":["B", "E"],
-# "B":["A","C","E"],
-# "C":["B","D"],
-# "D":["C","E"],
-# "E":["A","B","D","F"],
-# "F":["E"],
-# }
+input = {"A":["B", "E"],
+"B":["A","C","E"],
+"C":["B","D"],
+"D":["C","E"],
+"E":["A","B","D","F"],
+"F":["E"],
+}
 
 # input = {'A': ['F', 'B'],
 # 'B': ['A', 'F', 'E', 'D', 'C'],
@@ -162,12 +162,14 @@ import random
 in_graph = Graph(input)
 in_graph.create_graph()
 
-for key, node in in_graph.nodes.items():
-    color = random.randint(1, 7)
-    node.set_color(color)
 
-hc = hill_climber(in_graph)
-hc.hillclimber()
+while True:
+    for key, node in in_graph.nodes.items():
+        color = random.randint(1, 7)
+        node.set_color(color)
+
+    hc = hill_climber(in_graph)
+    hc.hillclimber()
 
 # while not in_graph.found():
 #
