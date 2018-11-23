@@ -12,41 +12,28 @@ class hill_climber:
         self.input = input
         self.all_colors = [1, 2, 3, 4, 5, 6, 7]
 
-        # print(self.input.nodes)
 
     def diff(self, first, second):
         second = set(second)
         return [item for item in first if item not in second]
 
+
     def hillclimber (self):
         gc = self.input.check_graph()
-        # print(f"first gc: {gc}")
         while not self.input.found():
             gc = self.input.check_graph()
-            # print(f"loop gc: {gc}")
             i = 0
             for node in self.input.wrong_nodes:
-                # print(node.name)
                 neighbour_colors = []
                 for neighbour in node.neighbours:
                     neighbour_colors.append(neighbour.color)
-                # print(neighbour_colors)
 
                 leftover_colors = (self.diff(self.all_colors, neighbour_colors))
-                # print(leftover_colors)
-                if leftover_colors == []:
-                    pass
-                else:
+                if leftover_colors != []:
                     new_color = self.apply_color(leftover_colors)
 
-
-                    # print("----------")
-                    # print(f" old: {gc[1][0][i].color}")
                     gc[1][0][i].color = new_color
-                    # print(gc[1][0][i].color)
                     i += 1
-                    self.input.check_graph()
-
 
         pp = pprint.PrettyPrinter()
         pp.pprint(self.input.nodes)
