@@ -5,6 +5,12 @@ class Graph:
     """
     Graph class, representing a country with provinces or states
     """
+    
+    # costs1 = {1: 12, 2: 26, 3: 27, 4: 30, 5: 37, 6: 39, 7: 41}
+    # costs2 = {1: 19, 2: 20, 3: 21, 4: 23, 5: 36, 6: 37, 7: 38}
+    # costs3 = {1: 16, 2: 17, 3: 31, 4: 33, 5: 36, 6: 56, 7: 57}
+    # costs4 = {1: 3, 2: 34, 3: 36, 4: 39, 5: 41, 6: 43, 7: 58}
+
 
     def __init__(self, graph_dict):
         """
