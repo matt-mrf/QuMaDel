@@ -79,38 +79,6 @@ class Graph:
         checks to see if graph is a valid graph
         """
         if self.neighbour_colors == ["found"]:
-            # for key, node in self.nodes.items():
-            #     n1 = []
-            #     n2 = []
-            #     n3 = []
-            #     n4 = []
-            #     n5 = []
-            #     n6 = []
-            #     n7 = []
-            #
-            #     if node.color == 1:
-            #         n1.append(node)
-            #     if node.color == 2:
-            #         n2.append(node)
-            #     if node.color == 3:
-            #         n3.append(node)
-            #     if node.color == 4:
-            #         n4.append(node)
-            #     if node.color == 5:
-            #         n5.append(node)
-            #     if node.color == 6:
-            #         n6.append(node)
-            #     if node.color == 7:
-            #         n7.append(node)
-            #
-            #     print(f"1: {n1}")
-            #     print(f"2: {n2}")
-            #     print(f"3: {n3}")
-            #     print(f"4: {n4}")
-            #     print(f"5: {n5}")
-            #     print(f"6: {n6}")
-            #     print(f"7: {n7}")
-
             return True
         else:
             return False

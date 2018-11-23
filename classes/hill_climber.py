@@ -8,6 +8,7 @@ class hill_climber:
     the color of the neighbours and checking the result
     """
 
+
     def __init__(self, input):
         self.input = input
         self.all_colors = [1, 2, 3, 4, 5, 6, 7]
@@ -22,6 +23,7 @@ class hill_climber:
         gc = self.input.check_graph()
         while not self.input.found():
             gc = self.input.check_graph()
+            print(gc[0], gc[1])
             i = 0
             for node in self.input.wrong_nodes:
                 neighbour_colors = []
