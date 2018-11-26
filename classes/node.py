@@ -15,14 +15,11 @@ class Node:
         self.color = 0
         self.neighbours = neighbours
 
-
     def set_color(self, given_color):
         """
         sets the color of a node
         """
         self.color = given_color
-
-
 
     def __repr__(self):
         return f"Name: {self.name}, Color: {self.color}"
