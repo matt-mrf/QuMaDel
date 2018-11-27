@@ -71,7 +71,7 @@ class Graph:
             self.neighbour_colors = ["found"]
             return []
         else:
-            return [self.counter, [self.wrong_nodes]]
+            return [self.counter, self.wrong_nodes]
             print(self.wrong_nodes)
 
     def found(self):
@@ -120,3 +120,4 @@ if __name__ == "__main__":
 
     graph_ukraine = Graph(ukraine)
     graph_ukraine.create_graph()
+    print(graph_ukraine.nodes)
