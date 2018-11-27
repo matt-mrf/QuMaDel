@@ -44,6 +44,18 @@ class Graph:
                 neighbour_obj = self.nodes[neighbour]
                 obj.neighbours.append(neighbour_obj)
 
+    def delete_node(self, node_name):
+        """
+        Deletes specified node from a graph
+        """
+        # delete node from neighbouring nodes
+        del_node = self.nodes[node_name]
+        for neighbour in del_node.neighbours:
+            neighbour.neighbours.remove(del_node)
+
+        # delete node itself
+        del self.nodes[node_name]
+
     def check_graph(self):
         self.counter = 0
         self.wrong_nodes = []
@@ -58,11 +70,6 @@ class Graph:
             if node_color in self.neighbour_colors:
                 self.counter += 1
                 self.wrong_nodes.append(node)
-
-        # print(f"amount of countries: {self.amount_of_countries}")
-        # print(f"amount of countries not right: {counter}")
-        # pct = float(counter / self.amount_of_countries * 100)
-        # print(f"percentage wrong: {pct}%")
 
         # check to see if graph has nodes without conflicting
         # neighbouring nodes
