@@ -1,6 +1,8 @@
 from classes.graph import Graph
 from classes.node import Node
+from classes.hill_climber import hill_climber
 import random
+
 
 # simple graph
 # input = {"A":["B", "E"],
