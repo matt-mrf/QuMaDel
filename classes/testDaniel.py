@@ -33,6 +33,9 @@ graph = {
 }
 # Build a dataframe with 4 connections
 G = nx.from_dict_of_lists(graph)
-# Plot it
+print(G)
 nx.draw(G, with_labels=True)
+
+
+
 plt.show()
