@@ -8,12 +8,11 @@ class hill_climber:
     Uses an pre made graph, and optimises it by changing
     the color of the neighbours and checking the result
     """
-    last_cost = 1000
     scheme = {1: 12, 2: 26, 3: 27, 4: 30, 5: 37, 6: 39, 7: 41}
 
     def __init__(self, input):
         self.input = input
-        self.all_colors = [1, 2, 3, 4, 5, 6, 7]
+        self.all_colors = [1, 2, 3, 4]
 
     def hillclimber_fill(self):
         gc = self.input.check_graph()
@@ -34,7 +33,7 @@ class hill_climber:
         pp = pprint.PrettyPrinter()
         pp.pprint(self.input.nodes)
 
-    def hillclimber_cost(self):
+    def hillclimber_fill_counter(self):
         gc = self.input.check_graph()
         while not self.input.found():
             print("not found")
@@ -80,5 +79,19 @@ class hill_climber:
 # tweede lijst is afhankelijk van de kleuren van de buren. Die haal je van de eerste lijst af.
 # Deze kleur ken die node aan
 
-pseudo costs:
-get empty Graph
+# pseudo hc_counter:
+# check random graph
+# sla counter op
+# vervang eerste nodes kleur met beschikbare kleur
+# haal kleur uit beschikbare kleuren
+# check graph
+# is nieuwe counter beter dan vorige?
+# if ja:
+#     opnieuw met betere graph
+# else:
+#     probeer volgende kleuren
+#     if kleuren zijn op:
+#         ga naar volgende node in wrong_nodes
+
+
+# pseudo costs:
