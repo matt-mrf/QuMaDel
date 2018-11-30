@@ -16,6 +16,7 @@ class Graph:
         initialize object by giving it a dictonary representing the
         adjecency list
         """
+        self.original_graph = graph_dict
         self.graph = graph_dict
         self.nodes = {}
         self.counter = 0
