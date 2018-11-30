@@ -22,7 +22,7 @@ class hill_climber:
                 for neighbour in cur_node.neighbours:
                     neighbour_colors.append(neighbour.color)
 
-                    
+
 
                 available_colors = self.diff(list(range(1,len(self.costscheme)+1)), neighbour_colors)
 
