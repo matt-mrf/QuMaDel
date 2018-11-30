@@ -1,15 +1,38 @@
 import random
+import copy
 
 class Randomizer:
 
-    def randomize_graph(self, in_graph):
+    def randomize_graph(self, in_graph, amount):
+        random.seed()
+        removed_graph = copy.deepcopy(in_graph)
+        all_colors = list(range(1, amount))
 
-        for key, node in in_graph.nodes.items():
-            color = random.randint(1, 4)
-            node.set_color(color)
+        # do until every node is colored
+        while removed_graph.nodes != {}:
+
+            # choose random node to assign a color to
+            rand_int = random.choice(list(removed_graph.nodes.keys()))
+            random_node = in_graph.nodes[str(rand_int)]
+
+            neighbour_colors = []
+            for neighbour in random_node.neighbours:
+                neighbour_colors.append(neighbour.color)
+
+            # find available colors
+            available_colors = self.diff(all_colors, neighbour_colors)
+
+            if available_colors == []:
+                return False
+            else:
+                random_color = random.choice(available_colors)
+                random_node.color = random_color
+
+            # remove country from object to track progress
+            removed_graph.nodes.pop(str(rand_int))
 
         return in_graph
 
-
-if __name__ == "__main__":
-    passS
+    def diff(self, first, second):
+        second = set(second)
+        return [item for item in first if item not in second]
