@@ -87,8 +87,8 @@ class Kempe:
             for node in uncolored_nodes:
                 node.color = self.amount
 
-            out_graph.check_graph()
-            # print(gc)
+            gc = out_graph.check_graph()
+            print(gc)
 
     def diff(self, first, second):
         second = set(second)
