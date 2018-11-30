@@ -88,7 +88,7 @@ class Kempe:
                 node.color = self.amount
 
             gc = out_graph.check_graph()
-            print(gc)
+        return out_graph
 
     def diff(self, first, second):
         second = set(second)

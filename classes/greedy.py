@@ -2,7 +2,7 @@ import random
 import pprint
 
 
-class hill_climber:
+class greedy:
 
     """
     Uses an pre made graph, and optimises it by changing
@@ -12,7 +12,7 @@ class hill_climber:
 
     def __init__(self, input):
         self.input = input
-        self.all_colors = [1, 2, 3, 4]
+        self.all_colors = [1, 2, 3, 4, 5, 6, 7]
 
     def hillclimber_fill(self):
         gc = self.input.check_graph()
@@ -31,7 +31,8 @@ class hill_climber:
             gc = self.input.check_graph()
 
         pp = pprint.PrettyPrinter()
-        pp.pprint(self.input.nodes)
+        return self.input
+        # pp.pprint(self.input.nodes)
 
     def hillclimber_fill_counter(self):
         gc = self.input.check_graph()

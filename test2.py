@@ -1,7 +1,11 @@
 from classes.graph import Graph
 from classes.hill_climber import hill_climber
+from classes.greedy import greedy
 from classes.kempe import Kempe
 import random
+
+
+costs1 = {1: 12, 2: 26, 3: 27, 4: 30, 5: 37, 6: 39, 7: 41}
 
 # input = {
 #     "A": ["B", "E"],
@@ -22,7 +26,7 @@ input = {
     '6': ['1', '2', '5', '7', '10'],
     '7': ['5', '6', '10', '9', '8'],
     '8': ['4', '5', '7', '9'],
-    '9': ['8', '9', '10', '11', '14', '15', '12'],
+    '9': ['8', '7', '10', '11', '14', '15', '12'],
     '10': ['6', '7', '9', '11'],
     '11': ['10', '9', '14', '18', '13'],
     '12': ['9', '15', '16'],
@@ -161,10 +165,20 @@ input = {
 # }
 
 kempe = Kempe(4)
-for i in range(5):
-    in_graph = Graph(input)
-    in_graph.create_graph()
-    kempe.execute_kempe(in_graph)
+
+in_graph = Graph(input)
+in_graph.create_graph()
+
+
+for key, node in in_graph.nodes.items():
+    color = random.randint(1, 4)
+    node.set_color(color)
+
+greedy = greedy(in_graph)
+hc_graph = greedy.hillclimber_fill()
+
+hc = hill_climber(costs1)
+hc.hill_climber(hc_graph)
 
 
 # hc = hill_climber(in_graph)
