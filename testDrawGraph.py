@@ -75,11 +75,8 @@ def draw(graph, color_of_nodes):
     """
     Draws a graph of nodes. Nodes have the color of the color_of_nodes list of value
     """
-    print("bla1")
     G = nx.from_dict_of_lists(graph)
-    print("bla2")
     nx.draw(G, with_labels=True, node_color=color_of_nodes)
-    print("bla3")
     plt.show()
 
 def numberList_to_colorList(color_list):
