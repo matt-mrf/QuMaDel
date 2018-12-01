@@ -110,9 +110,9 @@ def draw_colored_graph(graph):
 
 
 if __name__ == "__main__":
-    graphUkr = Graph(input)
+    graphUkr = Graph(input2)
     graphUkr.create_graph()
-    kempe = Kempe(6)
+    kempe = Kempe(4)
     graphUkr = kempe.execute_kempe(graphUkr)
     print(graphUkr.nodes)
     draw_colored_graph(graphUkr)
