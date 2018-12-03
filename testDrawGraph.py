@@ -75,11 +75,8 @@ def draw(graph, color_of_nodes):
     """
     Draws a graph of nodes. Nodes have the color of the color_of_nodes list of value
     """
-    print("bla1")
     G = nx.from_dict_of_lists(graph)
-    print("bla2")
     nx.draw(G, with_labels=True, node_color=color_of_nodes)
-    print("bla3")
     plt.show()
 
 def numberList_to_colorList(color_list):
@@ -115,7 +112,7 @@ def draw_colored_graph(graph):
 if __name__ == "__main__":
     graphUkr = Graph(input)
     graphUkr.create_graph()
-    kempe = Kempe(6)
+    kempe = Kempe(5)
     graphUkr = kempe.execute_kempe(graphUkr)
     print(graphUkr.nodes)
     draw_colored_graph(graphUkr)
