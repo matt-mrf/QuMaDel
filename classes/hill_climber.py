@@ -8,10 +8,12 @@ class hill_climber:
 
     def hill_climber(self, in_graph):
 
-        for i in range(2500):
+        cost = 0
+        for i in range(100):
 
             initial_costs = self.get_costs(in_graph)
             print(initial_costs)
+            cost = initial_costs
 
             found = False
             while not found:
@@ -22,7 +24,7 @@ class hill_climber:
                 for neighbour in cur_node.neighbours:
                     neighbour_colors.append(neighbour.color)
 
-                    
+
 
                 available_colors = self.diff(list(range(1,len(self.costscheme)+1)), neighbour_colors)
 
@@ -41,6 +43,7 @@ class hill_climber:
             if new_costs > initial_costs:
                 cur_node.color = original_color
 
+        return cost
 
 
     def diff(self, first, second):

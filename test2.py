@@ -180,6 +180,15 @@ hc_graph = greedy.hillclimber_fill()
 hc = hill_climber(costs1)
 hc.hill_climber(hc_graph)
 
-
+cost_list = []
+for i in range(100):
+    in_graph = Graph(input)
+    in_graph.create_graph()
+    greedy = greedy(in_graph)
+    hc_graph = greedy.hillclimber_fill()
+    hc = hill_climber(costs1)
+    cost_list.append(hc.hill_climber(hc_graph))
+    print(cost_list)
+    print(min(cost_list))
 # hc = hill_climber(in_graph)
 # hc.hillclimber_fill()
