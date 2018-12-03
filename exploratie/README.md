@@ -8,7 +8,7 @@ Zenderinrichting is te vergelijken met het kleuren een landkaart. Beide zijn nam
 
 1 kleur is al triviaal voor 2 aangrenzende landen.
 2 kleuren is niet toelaatbaar als er een cykel is.
-3 kleuren zijn al veel landkaarten te kleuren. Landkaarten zijn niet 3 kleurbaar als er twee punten zijn met oneven graad. Graad >= 3.
+3 kleuren zijn al veel landkaarten te kleuren. Landkaarten zijn niet 3 kleurbaar als er twee punten zijn met oneven graad. Graad >= 3. En alle buren weer een gesloten wandeling vormen
 4 kleurbaar is elke graaf uit de theorie.
 
 Hieruit concluderen we dat er maximaal 4 kleuren nodig zijn. We checken of er een mogelijkheid is om 3 kleurbaar is, zo niet passen we 4 kleuren algoritme toe
