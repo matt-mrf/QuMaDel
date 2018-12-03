@@ -8,7 +8,7 @@ Zenderinrichting is te vergelijken met het kleuren een landkaart. Beide zijn nam
 
 1 kleur is al triviaal voor 2 aangrenzende landen.
 2 kleuren is niet toelaatbaar als er een cykel is.
-3 kleuren zijn al veel landkaarten te kleuren. Landkaarten zijn niet 3 kleurbaar als er twee punten zijn met oneven graad. Graad >= 3. En alle buren weer een gesloten wandeling vormen
+3 kleuren zijn al veel landkaarten te kleuren. Landkaarten zijn niet 3 kleurbaar als er twee punten zijn met oneven graad. Graad >= 3.
 4 kleurbaar is elke graaf uit de theorie.
 
 Hieruit concluderen we dat er maximaal 4 kleuren nodig zijn. We checken of er een mogelijkheid is om 3 kleurbaar is, zo niet passen we 4 kleuren algoritme toe
@@ -24,7 +24,8 @@ c) De produktie van zenders wordt in Rusland uiteraard ook door de overheid bere
 
 Iteratief algortime op toelaatbare oplossing die aan constraints voldoet. Een node met de kleur die het vaakst is gebruikt, de kleur geven die het minst is gebruikt en checken of oplossing nof steeds toelaatbaar is.
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------
+
 Opdracht 2
 Er zijn vier mogelijke kostenschema's bekend geworden. Bekijk voor ieder land welk kostenschema de voordeligste inrichting oplevert.
 
@@ -41,6 +42,25 @@ Branch and bound.
 Lastige van het probleem is dat wanneer je 1 zendertype toevoegd die duurder is, je misschien heel vaak eentje kan gebruiken die goedkoop is.
 Idee is misschien om node met hoogste graad een duurdere kleur te geven.
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------
+
 Advanged
 Omdat production in numbers goedkoper is, wordt iedere geplaatste zender van een type 10% goedkoper dan de vorige van hetzelfde type. Vind, met je algoritmes, opnieuw de beste oplossing voor de landen. Hoe vergelijken ze met de oplossingen van opgaven 1 en 2?
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+State Space
+
+De statespace voor RadioRussia is gemakkelijk te berekenen, er zijn in totaal 7 verschillende zendtypes die per provincie geplaatst kunnen worden. De formule van de upperbound wordt hierdoor gemakkelijk berekend:
+
+State Space (losse punten) = aantal zendtypes ^ aantal provincies
+
+Maar in ons geval van constraints waarbij aanliggende provincies niet hetzelfde zendtype mogen hebben, word de statespace een stuk lager. De eerste provincie heeft 7 mogelijke opties en de daarop volgende provincies steeds 6 verschillende zentypes waaruit ze kunnen kiezen. De  formule wordt hieroor:
+
+State Space (aanliggende punten) =  aantal zendtypes * (aantal zendtypes -1) ^ (aantal provincies -1)
+
+Als we deze twee voor een land als Ukraine berekenen:
+losse punten: 1.3 * 10^21
+aanliggende punten: 2.2 * 10^19
+
+Wanneer de constaints worden toegepast wordt de state space gellijk een stuk kleiner.
