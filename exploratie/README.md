@@ -63,4 +63,10 @@ Als we deze twee voor een land als Ukraine berekenen:
 losse punten: 1.3 * 10^21
 aanliggende punten: 2.2 * 10^19
 
-Wanneer de constaints worden toegepast wordt de state space gellijk een stuk kleiner.
+Wanneer de constaints worden toegepast wordt de state space een stuk kleiner.
+Dit is ook van grote invloed op de Brute force, namelijk:
+
+brute force bij losse punten = 4.1195394 × 10^12 jaar (400 miljard jaar)
+brute force bij aanliggende punten = 6.97152822 × 10^10 jaar (7 miljard jaar)
+
+(Als een berekening een 10e van een seconde duurt)
