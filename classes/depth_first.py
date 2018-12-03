@@ -12,12 +12,6 @@ class Depth:
         #     score = get_costs(in_graph)
         #
         #     # keep track of the lowest score
-        #     if resultscore < lowestscore:
-        #         lowestscore = resultscore
-        #         for key, value in coloredRegions.items():
-        #             country.regions[key].transmitter = value
-        #         drawGraph(country.regions, config.country + str(lowestscore))
-        #         print('Lowestscore is now: ' + str(lowestscore))
 
         # continue until max depth reached
         if depth < max_depth:
