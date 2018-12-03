@@ -57,10 +57,14 @@ State Space (losse punten) = aantal zendtypes ^ aantal provincies
 
 Maar in ons geval van constraints waarbij aanliggende provincies niet hetzelfde zendtype mogen hebben, word de statespace een stuk lager. De eerste provincie heeft 7 mogelijke opties en de daarop volgende provincies steeds 6 verschillende zentypes waaruit ze kunnen kiezen. De  formule wordt hieroor:
 
-State Space (aanliggende punten) =  aantal zendtypes * (aantal zendtypes -1) ^ (aantal provincies -1)
+State Space (aanliggende punten) =  aantal zendtypes * (aantal zendtypes - 1) ^ (aantal provincies - 1)
 
 Als we deze twee voor een land als Ukraine berekenen:
 losse punten: 1.3 * 10^21
 aanliggende punten: 2.2 * 10^19
+
+Rusland:
+losse punten: 7^82 = 1.986 * 10^69
+aanliggende punten: 7.5 * 10^63
 
 Wanneer de constaints worden toegepast wordt de state space gellijk een stuk kleiner.
