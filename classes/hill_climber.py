@@ -15,8 +15,8 @@ class hill_climber:
 
             found = False
             while not found:
-                random_int = str(random.randint(1, len(in_graph.nodes)))
-                cur_node = in_graph.nodes[random_int]
+                rand_int = random.choice(list(in_graph.nodes.keys()))
+                cur_node = in_graph.nodes[rand_int]
 
                 neighbour_colors = []
                 for neighbour in cur_node.neighbours:
