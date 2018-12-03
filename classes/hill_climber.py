@@ -12,7 +12,6 @@ class hill_climber:
         for i in range(100):
 
             initial_costs = self.get_costs(in_graph)
-            print(initial_costs)
             cost = initial_costs
 
             found = False

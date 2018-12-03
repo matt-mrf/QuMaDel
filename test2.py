@@ -171,9 +171,6 @@ in_graph = Graph(input)
 in_graph.create_graph()
 
 rando = Randomizer()
-rand = rando.randomize_graph(in_graph, 7)
-while not rand:
-    rand = rando.randomize_graph(in_graph, 7)
 
 
 
@@ -183,18 +180,22 @@ while not rand:
 
 # greedy = greedy(in_graph)
 #
+# hc = hill_climber(costs1)
+# hc.hill_climber(rand)
+
+#     in_graph = Graph(input)
+#     in_graph.create_graph()
+#     greedy = greedy(in_graph)
+#     hc_graph = greedy.hillclimber_fill()
+#     hc = hill_climber(costs1)
+
+
 hc = hill_climber(costs1)
-hc.hill_climber(rand)
 
 cost_list = []
-for i in range(100):
-    in_graph = Graph(input)
-    in_graph.create_graph()
-    greedy = greedy(in_graph)
-    hc_graph = greedy.hillclimber_fill()
-    hc = hill_climber(costs1)
-    cost_list.append(hc.hill_climber(hc_graph))
-    print(cost_list)
-    print(min(cost_list))
-# hc = hill_climber(in_graph)
-# hc.hillclimber_fill()
+for i in range(10000):
+    rand = rando.randomize_graph(in_graph, 7)
+    while not rand:
+        rand = rando.randomize_graph(in_graph, 7)
+    cost_list.append(hc.hill_climber(rand))
+print(min(cost_list))
