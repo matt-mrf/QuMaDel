@@ -37,7 +37,13 @@ class Kempe_1c:
         cur_graph = in_graph
         k = self.amount - 1  # number of colors to initially use
         stack = []
-        
+
+        color_count_dict = {}
+        for i in range(self.amount):
+            color_count_dict[i] = 0
+        print(color_count_dict)
+
+
         while not out_graph.found():
             out_graph = copy.deepcopy(in_graph)
             cur_graph = copy.deepcopy(in_graph)
