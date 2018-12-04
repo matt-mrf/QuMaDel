@@ -44,6 +44,7 @@ Branch and bound.
 Lastige van het probleem is dat wanneer je 1 zendertype toevoegd die duurder is, je misschien heel vaak eentje kan gebruiken die goedkoop is.
 Idee is misschien om node met hoogste graad een duurdere kleur te geven.
 
+hill climber
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
 Advanged
@@ -70,3 +71,11 @@ losse punten: 7^82 = 1.986 * 10^69
 aanliggende punten: 7.5 * 10^63
 
 Wanneer de constaints worden toegepast wordt de state space gellijk een stuk kleiner.
+
+Kostenschema:
+n = landen/provincies
+i = {1,2,3,4}
+strict upperbound = n * max(kostenschema(i))
+strict lowerbound = n * min(kostenschema(i))
+
+Onze 4 landen zijn allemaal met minimaal 4 kleuren te 
