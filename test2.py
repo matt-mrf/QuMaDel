@@ -4,7 +4,7 @@ from classes.greedy import greedy
 from classes.kempe import Kempe
 from classes.randomizer import Randomizer
 import random
-
+import numpy as np
 
 costs1 = {1: 12, 2: 26, 3: 27, 4: 30, 5: 37, 6: 39, 7: 41}
 
@@ -201,15 +201,17 @@ rando = Randomizer()
 # hc.hill_climber_n_opt(rand, 2)
 
 # print(hc.hill_climber_annealing(rand))
-#
-cost_list = []
-for i in range(1000):
-    rand = rando.randomize_graph(in_graph, 7)
-    while not rand:
-        rand = rando.randomize_graph(in_graph, 7)
-    cost_list.append(hc.hill_climber_n_opt(rand, 2))
-print((cost_list))
-print(min(cost_list))
+# #
+# cost_list = []
+# for i in range(3000):
+#     rand = rando.randomize_graph(in_graph, 7)
+#     while not rand:
+#         rand = rando.randomize_graph(in_graph, 7)
+#     cost_list.append(hc.hill_climber_n_opt(rand, 2))
+# print((cost_list))
+# print(min(cost_list))
+# print(np.mean(cost_list))
+# print(max(cost_list))
 
 
 cost_list = []
@@ -221,3 +223,5 @@ for i in range(100):
     print(i)
 print((cost_list))
 print(min(cost_list))
+print(np.mean(cost_list))
+print(max(cost_list))

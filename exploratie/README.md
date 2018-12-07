@@ -67,7 +67,7 @@ aanliggende punten: 2.2 * 10^19
 
 <<<<<<< HEAD
 Wanneer de constaints worden toegepast wordt de state space een stuk kleiner.
-Dit is ook van grote invloed op de Brute force, namelijk:
+Dit is ook van grote invloed op de Brute force, het getal is te groot om door te berekenen. Gaat te lang duren.
 
 brute force bij losse punten = 4.1195394 × 10^12 jaar (400 miljard jaar)
 brute force bij aanliggende punten = 6.97152822 × 10^10 jaar (7 miljard jaar)
@@ -80,3 +80,38 @@ aanliggende punten: 7.5 * 10^63
 
 Wanneer de constaints worden toegepast wordt de state space gellijk een stuk kleiner.
 >>>>>>> a53874397a0ee13748df7d9877b28ac188f0944b
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Resultaten costs (Bij 2500 iteraties en sample size van 1000)
+
+Hillclimber n-opt:          
+
+            n=1
+Min = 628
+Avg = 681.22
+Max = 755
+
+            n=2
+Min = 628
+Avg = 679.05
+Max = 744
+
+            n=3
+Min = 640
+Avg = 682.645
+Max = 740
+
+            n=4
+Min = 643
+Avg = 691/74
+Max = 756
+
+Hillclimber annealing:
+Min = 628
+Avg = 644,05
+Max = 695
+
+Het algoritme wat leidt tot de beste resultaten is de Hillclimber annealing. Hij komt altijd in een minimum en de avarage en de max zijn over het algemeeen ook lager dan de n-opt hillclimbers.
