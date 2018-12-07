@@ -57,10 +57,12 @@ State Space
 De statespace voor RadioRussia is gemakkelijk te berekenen, er zijn in totaal 7 verschillende zendtypes die per provincie geplaatst kunnen worden. De formule van de upperbound wordt hierdoor gemakkelijk berekend:
 
 State Space (losse punten) = aantal zendtypes ^ aantal provincies
+State Space (losse punten, upperbound) = aantal zendtypes ^ aantal provincies
 
 Maar in ons geval van constraints waarbij aanliggende provincies niet hetzelfde zendtype mogen hebben, word de statespace een stuk lager. De eerste provincie heeft 7 mogelijke opties en de daarop volgende provincies steeds 6 verschillende zentypes waaruit ze kunnen kiezen. De  formule wordt hieroor:
 
 State Space (aanliggende punten) =  aantal zendtypes * (aantal zendtypes - 1) ^ (aantal provincies - 1)
+State Space (aanliggende punten, lowerbound) =  aantal zendtypes * (aantal zendtypes - 1) ^ (aantal provincies - 1)
 
 Als we deze twee voor een land als Ukraine berekenen:
 losse punten: 1.3 * 10^21

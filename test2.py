@@ -201,6 +201,7 @@ rando = Randomizer()
 # hc.hill_climber_n_opt(rand, 2)
 
 # print(hc.hill_climber_annealing(rand))
+<<<<<<< HEAD
 cost_list = []
 for i in range(3000):
     rand = rando.randomize_graph(in_graph, 7)
@@ -225,3 +226,29 @@ print(max(cost_list))
 # print(min(cost_list))
 # print(np.mean(cost_list))
 # print(max(cost_list))
+=======
+# #
+# cost_list = []
+# for i in range(3000):
+#     rand = rando.randomize_graph(in_graph, 7)
+#     while not rand:
+#         rand = rando.randomize_graph(in_graph, 7)
+#     cost_list.append(hc.hill_climber_n_opt(rand, 2))
+# print((cost_list))
+# print(min(cost_list))
+# print(np.mean(cost_list))
+# print(max(cost_list))
+
+
+cost_list = []
+for i in range(100):
+    rand = rando.randomize_graph(in_graph, 7)
+    while not rand:
+        rand = rando.randomize_graph(in_graph, 7)
+    cost_list.append(hc.hill_climber_annealing(rand))
+    print(i)
+print((cost_list))
+print(min(cost_list))
+print(np.mean(cost_list))
+print(max(cost_list))
+>>>>>>> 5e662b224d10bfd5d9fdcf22f947913e683a6899
