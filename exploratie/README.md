@@ -65,7 +65,7 @@ Als we deze twee voor een land als Ukraine berekenen:
 losse punten: 1.3 * 10^21
 aanliggende punten: 2.2 * 10^19
 
-<<<<<<< HEAD
+Invloed constaints op State Space
 Wanneer de constaints worden toegepast wordt de state space een stuk kleiner.
 Dit is ook van grote invloed op de Brute force, het getal is te groot om door te berekenen. Gaat te lang duren.
 
