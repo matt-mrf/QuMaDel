@@ -59,7 +59,7 @@ State Space (losse punten, upperbound) = aantal zendtypes ^ aantal provincies
 
 Maar in ons geval van constraints waarbij aanliggende provincies niet hetzelfde zendtype mogen hebben, word de statespace een stuk lager. De eerste provincie heeft 7 mogelijke opties en de daarop volgende provincies steeds 6 verschillende zentypes waaruit ze kunnen kiezen. De  formule wordt hieroor:
 
-State Space (aanliggende punten) =  aantal zendtypes * (aantal zendtypes - 1) ^ (aantal provincies - 1)
+State Space (aanliggende punten, lowerbound) =  aantal zendtypes * (aantal zendtypes - 1) ^ (aantal provincies - 1)
 
 Als we deze twee voor een land als Ukraine berekenen:
 losse punten: 1.3 * 10^21
@@ -114,4 +114,6 @@ Min = 628
 Avg = 644,05
 Max = 695
 
-Het algoritme wat leidt tot de beste resultaten is de Hillclimber annealing. Hij komt altijd in een minimum en de avarage en de max zijn over het algemeeen ook lager dan de n-opt hillclimbers. 
+Het algoritme wat leidt tot de beste resultaten is de Hillclimber annealing. Hij komt altijd in een minimum en de avarage en de max zijn over het algemeeen ook lager dan de n-opt hillclimbers.
+
+Dit omdat de annealing werkt doormiddel van de temperatuur eerst hoog te maken en doordat de temp steeds lager word.
