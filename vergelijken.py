@@ -1,49 +1,42 @@
 from classes.graph import Graph
-from classes.hill_climber import hill_climber
-from classes.greedy import greedy
 from classes.kempe import Kempe
-from classes.randomizer import Randomizer
-import random
-import numpy as np
+from classes.hill_climber import hill_climber
 
 costs1 = {1: 12, 2: 26, 3: 27, 4: 30, 5: 37, 6: 39, 7: 41}
+costs2 = {1:19 , 2: 20, 3: 21, 4: 23, 5: 36, 6: 37, 7: 38}
+costs3 = {1: 16, 2: 17, 3: 31, 4: 33, 5: 36, 6: 56, 7: 57}
+costs4 = {1: 3, 2: 34, 3: 36, 4: 39, 5: 41, 6: 43, 7: 58}
 
-# input = {
-#     "A": ["B", "E"],
-#     "B": ["A", "C", "E"],
-#     "C": ["B", "D"],
-#     "D": ["C", "E"],
-#     "E": ["A", "B", "D", "F"],
-#     "F": ["E"],
-# }
 
-# input = {
-#     '1': ['6', '2'],
-#     '2': ['1', '6', '5', '4', '3'],
-#     '3': ['2', '4'],
-#     '4': ['3', '2', '5', '8'],
-#     '5': ['4', '2', '6', '7', '8'],
-#     '6': ['1', '2', '5', '7', '10'],
-#     '7': ['5', '6', '10', '9', '8'],
-#     '8': ['4', '5', '7', '9'],
-#     '9': ['8', '7', '10', '11', '14', '15', '12'],
-#     '10': ['6', '7', '9', '11'],
-#     '11': ['10', '9', '14', '18', '13'],
-#     '12': ['9', '15', '16'],
-#     '13': ['17', '11'],
-#     '14': ['11', '18', '15', '9'],
-#     '15': ['9', '14', '18', '21', '16', '12'],
-#     '16': ['12', '15', '21', '19'],
-#     '17': ['13', '18'],
-#     '18': ['11', '17', '23', '21', '15', '14'],
-#     '19': ['16', '21', '22', '20'],
-#     '20': ['19'],
-#     '21': ['18', '23', '24', '22', '19', '16', '15'],
-#     '22': ['19', '21', '24'],
-#     '23': ['18', '21', '24', '25'],
-#     '24': ['22', '21', '23', '25'],
-#     '25': ['23', '24']
-# }
+
+# ukraine
+input = {
+    '1': ['6', '2'],
+    '2': ['1', '6', '5', '4', '3'],
+    '3': ['2', '4'],
+    '4': ['3', '2', '5', '8'],
+    '5': ['4', '2', '6', '7', '8'],
+    '6': ['1', '2', '5', '7', '10'],
+    '7': ['5', '6', '10', '9', '8'],
+    '8': ['4', '5', '7', '9'],
+    '9': ['8', '7', '10', '11', '14', '15', '12'],
+    '10': ['6', '7', '9', '11'],
+    '11': ['10', '9', '14', '18', '13'],
+    '12': ['9', '15', '16'],
+    '13': ['17', '11'],
+    '14': ['11', '18', '15', '9'],
+    '15': ['9', '14', '18', '21', '16', '12'],
+    '16': ['12', '15', '21', '19'],
+    '17': ['13', '18'],
+    '18': ['11', '17', '23', '21', '15', '14'],
+    '19': ['16', '21', '22', '20'],
+    '20': ['19'],
+    '21': ['18', '23', '24', '22', '19', '16', '15'],
+    '22': ['19', '21', '24'],
+    '23': ['18', '21', '24', '25'],
+    '24': ['22', '21', '23', '25'],
+    '25': ['23', '24']
+}
 
 input = {
     '1': ['2', '4', '6'],
@@ -78,6 +71,8 @@ input = {
     '30': ['29', '12']
 }
 
+
+# Rusland
 # input = {
 #     '1': ['23'],
 #     '2': ['16', '18', '56', '66', '74', '90'],
@@ -164,65 +159,10 @@ input = {
 #     '90': ['43', '11', '66', '18', '2']
 # }
 
-kempe = Kempe(4)
 
-in_graph = Graph(input)
-in_graph.create_graph()
-
-# bf = Depth(costs1, 5)
-# bf.depth_first([], {}, 0, len(in_graph.nodes), in_graph)
-
-
-
-
-
-# for key, node in in_graph.nodes.items():
-#     color = random.randint(1, 4)
-#     node.set_color(color)
-
-# greedy = greedy(in_graph)
-
-hc = hill_climber(costs1)
-# hc.hill_climber(rand)
-
-#     in_graph = Graph(input)
-#     in_graph.create_graph()
-#     greedy = greedy(in_graph)
-#     hc_graph = greedy.hillclimber_fill()
-#     hc = hill_climber(costs1)
-
-
-# hc = hill_climber(costs1)
-
-rando = Randomizer()
-# rand = rando.randomize_graph(in_graph, 7)
-# while not rand:
-#     rand = rando.randomize_graph(in_graph, 7)
-# hc.hill_climber_n_opt(rand, 2)
-
-# print(hc.hill_climber_annealing(rand))
-
-cost_list = []
-for i in range(3000):
-    rand = rando.randomize_graph(in_graph, 7)
-    while not rand:
-        rand = rando.randomize_graph(in_graph, 7)
-    cost_list.append(hc.hill_climber_n_opt(rand, 6))
-print("n = 6")
-print((cost_list))
-print(min(cost_list))
-print(np.mean(cost_list))
-print(max(cost_list))
-
-
-# cost_list = []
-# for i in range(100):
-#     rand = rando.randomize_graph(in_graph, 7)
-#     while not rand:
-#         rand = rando.randomize_graph(in_graph, 7)
-#     cost_list.append(hc.hill_climber_annealing(rand))
-#     print(i)
-# print((cost_list))
-# print(min(cost_list))
-# print(np.mean(cost_list))
-# print(max(cost_list))
+if __name__ == "__main__":
+    graphUkr = Graph(input)
+    graphUkr.create_graph()
+    hc = hill_climber(costs1)
+    hc.hill_climber(graphUkr)
+    # print(hc)

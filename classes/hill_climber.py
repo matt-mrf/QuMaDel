@@ -42,11 +42,11 @@ class hill_climber:
 
             if new_costs > initial_costs:
                 cur_node.color = original_color
-
+        print(cost)
         return cost
 
     def hill_climber_n_opt(self, in_graph, n):
-        iterations = 2500
+        iterations = 10000
         cost = 0
         for i in range(iterations):
 
