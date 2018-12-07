@@ -55,7 +55,7 @@ State Space
 
 De statespace voor RadioRussia is gemakkelijk te berekenen, er zijn in totaal 7 verschillende zendtypes die per provincie geplaatst kunnen worden. De formule van de upperbound wordt hierdoor gemakkelijk berekend:
 
-State Space (losse punten) = aantal zendtypes ^ aantal provincies
+State Space (losse punten, upperbound) = aantal zendtypes ^ aantal provincies
 
 Maar in ons geval van constraints waarbij aanliggende provincies niet hetzelfde zendtype mogen hebben, word de statespace een stuk lager. De eerste provincie heeft 7 mogelijke opties en de daarop volgende provincies steeds 6 verschillende zentypes waaruit ze kunnen kiezen. De  formule wordt hieroor:
 
@@ -114,4 +114,4 @@ Min = 628
 Avg = 644,05
 Max = 695
 
-Het algoritme wat leidt tot de beste resultaten is de Hillclimber annealing. Hij komt altijd in een minimum en de avarage en de max zijn over het algemeeen ook lager dan de n-opt hillclimbers.
+Het algoritme wat leidt tot de beste resultaten is de Hillclimber annealing. Hij komt altijd in een minimum en de avarage en de max zijn over het algemeeen ook lager dan de n-opt hillclimbers. 

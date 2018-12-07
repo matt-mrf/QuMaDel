@@ -46,7 +46,7 @@ class hill_climber:
         return cost
 
     def hill_climber_n_opt(self, in_graph, n):
-        iterations = 10000
+        iterations = 1000000
         cost = 0
         for i in range(iterations):
 
