@@ -12,7 +12,7 @@ dict = {
     "costs2" : {1:19 , 2: 20, 3: 21, 4: 23, 5: 36, 6: 37, 7: 38},
     "costs3" : {1: 16, 2: 17, 3: 31, 4: 33, 5: 36, 6: 56, 7: 57},
     "costs4" : {1: 3, 2: 34, 3: 36, 4: 39, 5: 41, 6: 43, 7: 58},
-    "ukraine" : {'1': ['6', '2'],
+    "ukraine" : {   '1': ['6', '2'],
                     '2': ['1', '6', '5', '4', '3'],
                     '3': ['2', '4'],
                     '4': ['3', '2', '5', '8'],
@@ -37,7 +37,7 @@ dict = {
                     '23': ['18', '21', '24', '25'],
                     '24': ['22', '21', '23', '25'],
                     '25': ['23', '24']
-                }
+                  }
 
 # input1 = {
 #     '1': ['2', '4', '6'],
@@ -163,8 +163,8 @@ dict = {
 
 if __name__ == "__main__":
     print(dict["costs1"][7])
-    # graphUkr = Graph(input)
-    # graphUkr.create_graph()
-    # hc = hill_climber(costs1)
-    # hc.hill_climber(graphUkr)
-    # print(hc)
+    graphUkr = Graph(input)
+    graphUkr.create_graph()
+    hc = hill_climber(costs1)
+    hc.hill_climber(graphUkr)
+    print(hc)
