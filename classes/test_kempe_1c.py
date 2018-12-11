@@ -2,7 +2,7 @@ import random
 import copy
 
 
-class Kempe_1c:
+class Test_kempe_1c:
     """
     Kempe's algorithm to k-color a graph
     """
@@ -38,6 +38,7 @@ class Kempe_1c:
         k = self.amount - 1  # number of colors to initially use
         stack = []
 
+###############################################
         color_count_dict = {}
         for i in range(self.amount):
             color_count_dict[i] = 0
@@ -60,7 +61,6 @@ class Kempe_1c:
                         break
                 if cur_node is None:  # if there are no nodes with degree < k
                     # pick node with lowest degree
-
                     cur_node = random.choice(list(nodes.values()))
 
                 # remove node from working graph and put on stack
