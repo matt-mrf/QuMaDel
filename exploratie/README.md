@@ -56,31 +56,21 @@ State Space
 
 De statespace voor RadioRussia is gemakkelijk te berekenen, er zijn in totaal 7 verschillende zendtypes die per provincie geplaatst kunnen worden. De formule van de upperbound wordt hierdoor gemakkelijk berekend:
 
-State Space (losse punten, upperbound) = aantal zendtypes ^ aantal provincies
+State Space (losse punten) = aantal zendtypes ^ aantal provincies
 
 Maar in ons geval van constraints waarbij aanliggende provincies niet hetzelfde zendtype mogen hebben, word de statespace een stuk lager. De eerste provincie heeft 7 mogelijke opties en de daarop volgende provincies steeds 6 verschillende zentypes waaruit ze kunnen kiezen. De  formule wordt hieroor:
 
-State Space (aanliggende punten, lowerbound) =  aantal zendtypes * (aantal zendtypes - 1) ^ (aantal provincies - 1)
+State Space (aanliggende punten) =  aantal zendtypes * (aantal zendtypes - 1) ^ (aantal provincies - 1)
 
 Als we deze twee voor een land als Ukraine berekenen:
 losse punten: 1.3 * 10^21
 aanliggende punten: 2.2 * 10^19
 
-<<<<<<< HEAD
-Wanneer de constaints worden toegepast wordt de state space een stuk kleiner.
-Dit is ook van grote invloed op de Brute force, het getal is te groot om door te berekenen. Gaat te lang duren.
-
-brute force bij losse punten = 4.1195394 × 10^12 jaar (400 miljard jaar)
-brute force bij aanliggende punten = 6.97152822 × 10^10 jaar (7 miljard jaar)
-
-(Als een berekening een 10e van een seconde duurt)
-=======
 Rusland:
 losse punten: 7^82 = 1.986 * 10^69
 aanliggende punten: 7.5 * 10^63
 
 Wanneer de constaints worden toegepast wordt de state space gellijk een stuk kleiner.
-<<<<<<< HEAD
 
 Kostenschema:
 n = landen/provincies
@@ -88,44 +78,6 @@ i = {1,2,3,4}
 strict upperbound = n * max(kostenschema(i))
 strict lowerbound = n * min(kostenschema(i))
 
-Onze 4 landen zijn allemaal met minimaal 4 kleuren te 
-=======
->>>>>>> a53874397a0ee13748df7d9877b28ac188f0944b
-
-
-
----------------------------------------------------------------------------------------------------------------------------------------------
-
-Resultaten costs (Bij 2500 iteraties en sample size van 1000)
-
-Hillclimber n-opt:          
-
-            n=1
-Min = 628
-Avg = 681.22
-Max = 755
-
-            n=2
-Min = 628
-Avg = 679.05
-Max = 744
-
-            n=3
-Min = 640
-Avg = 682.645
-Max = 740
-
-            n=4
-Min = 643
-Avg = 691/74
-Max = 756
-
-Hillclimber annealing:
-Min = 628
-Avg = 644,05
-Max = 695
-
-Het algoritme wat leidt tot de beste resultaten is de Hillclimber annealing. Hij komt altijd in een minimum en de avarage en de max zijn over het algemeeen ook lager dan de n-opt hillclimbers.
-
-Dit omdat de annealing werkt doormiddel van de temperatuur eerst hoog te maken en doordat de temp steeds lager word.
->>>>>>> 5e662b224d10bfd5d9fdcf22f947913e683a6899
+Onze 4 landen zijn allemaal met minimaal 4 kleuren te kleuren.
+strict upperbound = n * max(kostenschema(i))
+strict lowerbound = n * min(kostenschema(i))
