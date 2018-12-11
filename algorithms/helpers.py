@@ -76,12 +76,14 @@ def draw_colored_graph(graph):
     color_list = number_to_color(number_list)
     draw(graph.original_graph, color_list)
 
+# def make_empty_graph(self)
 
-if __name__ == "__main__":
-    print("sdlnf")
-    graphUkr = Graph(input)
-    graphUkr.create_graph()
-    kempe = Kempe(5)
-    graphUkr = kempe.execute_kempe(graphUkr)
-    print(graphUkr.nodes)
-    draw_colored_graph(graphUkr)
+
+# if __name__ == "__main__":
+#     print("sdlnf")
+#     graphUkr = Graph(input)
+#     graphUkr.create_graph()
+#     kempe = Kempe(5)
+#     graphUkr = kempe.execute_kempe(graphUkr)
+#     print(graphUkr.nodes)
+#     draw_colored_graph(graphUkr)
