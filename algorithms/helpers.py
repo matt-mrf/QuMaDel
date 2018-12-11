@@ -1,6 +1,6 @@
 import networkx as nx
 import matplotlib.pyplot as plt
-
+from datastructure.graph import Graph
 
 input2 = {
     '1': ['2', '4', '6'],
@@ -50,7 +50,7 @@ def number_to_color(color_list):
     """
     input: list of numbers
     Transforms the number to color
-    return a list
+    return a list of colors
     """
     colors_list = ["black", "red", "blue", "orange", "yellow", "purple", "green", "pink"]
     for i in range(len(color_list)):
@@ -58,9 +58,9 @@ def number_to_color(color_list):
     return color_list
 
 
-def numberList(graph):
+def number_list(graph):
     """
-    Makes a number list from the numbercolor of the graph
+    Makes a number list from the number color of the graph
     """
     number_list = []
     for keys in graph.nodes:
@@ -72,12 +72,13 @@ def draw_colored_graph(graph):
     """
     Draws a graph with colored nodes.
     """
-    number_list = numberList(graph)
-    color_list = numberList_to_colorList(number_list)
+    number_list = number_list(graph)
+    color_list = number_to_color(number_list)
     draw(graph.original_graph, color_list)
 
 
 if __name__ == "__main__":
+    print("sdlnf")
     graphUkr = Graph(input)
     graphUkr.create_graph()
     kempe = Kempe(5)

@@ -241,7 +241,7 @@ print(max(cost_list))
 
 
 cost_list = []
-for i in range(100):
+for i in range(2):
     rand = rando.randomize_graph(in_graph, 7)
     while not rand:
         rand = rando.randomize_graph(in_graph, 7)
@@ -251,4 +251,3 @@ print((cost_list))
 print(min(cost_list))
 print(np.mean(cost_list))
 print(max(cost_list))
->>>>>>> 5e662b224d10bfd5d9fdcf22f947913e683a6899
