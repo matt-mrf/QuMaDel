@@ -1,4 +1,6 @@
-graph = {
+import csv
+
+input = {
 '1':['23'],
 '2':['16','18','56','66','74','90'],
 '3':['75','38','17'],
@@ -82,3 +84,20 @@ graph = {
 '89': ['11', '86', '83', '24'],
 '90': ['43', '11', '66', '18', '2']
 }
+
+with open('russia.csv', 'w', newline='') as outfile:
+    writer = csv.writer(outfile)
+
+    for node in input:
+        lijstje = ",".join(input[node])
+        writer.writerow([node, lijstje])
+
+data = {}
+with open('russia.csv', newline='') as csvfile:
+    reader = csv.reader(csvfile)
+    for row in reader:
+        # row[0] is de key
+        # row[1] is de lijst met adjecent nodes
+        data[row[0]] = row[1].split(",")
+
+    print(data)

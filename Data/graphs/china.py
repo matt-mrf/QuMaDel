@@ -1,3 +1,5 @@
+import csv
+
 input = {
 '1':['2','4','6'],
 '2':['1','4','5','3'],
@@ -30,3 +32,20 @@ input = {
 '29':['28','30','12'],
 '30':['29','12']
 }
+
+with open('china.csv', 'w', newline='') as outfile:
+    writer = csv.writer(outfile)
+
+    for node in input:
+        lijstje = ",".join(input[node])
+        writer.writerow([node, lijstje])
+
+data = {}
+with open('china.csv', newline='') as csvfile:
+    reader = csv.reader(csvfile)
+    for row in reader:
+        # row[0] is de key
+        # row[1] is de lijst met adjecent nodes
+        data[row[0]] = row[1].split(",")
+
+    print(data)
