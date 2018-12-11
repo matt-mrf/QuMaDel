@@ -1,3 +1,5 @@
+import csv
+
 input = {'AL': ['FL', 'GA', 'MS', 'TN'],
          'FL': ['AL', 'GA'],
          'GA': ['AL', 'FL', 'NC', 'SC', 'TN'],
@@ -48,3 +50,20 @@ input = {'AL': ['FL', 'GA', 'MS', 'TN'],
          'ME': ['NH'],
          'ND': ['MN', 'MT', 'SD']
          }
+
+with open('usa.csv', 'w', newline='') as outfile:
+    writer = csv.writer(outfile)
+
+    for node in input:
+        lijstje = ",".join(input[node])
+        writer.writerow([node, lijstje])
+
+data = {}
+with open('usa.csv', newline='') as csvfile:
+    reader = csv.reader(csvfile)
+    for row in reader:
+        # row[0] is de key
+        # row[1] is de lijst met adjecent nodes
+        data[row[0]] = row[1].split(",")
+
+    print(data)

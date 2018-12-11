@@ -39,8 +39,8 @@ data = {}
 with open('ukraine.csv', newline='') as csvfile:
     reader = csv.reader(csvfile)
     for row in reader:
-        # row[0] is de key
-        # row[1] is de lijst met adjecent nodes
+        # row[0] is the key
+        # row[1] is the list with adjecent nodes
         data[row[0]] = row[1].split(",")
 
-    print(data)
+return data
