@@ -58,7 +58,7 @@ def number_to_color(color_list):
     return color_list
 
 
-def number_list(graph):
+def make_number_list(graph):
     """
     Makes a number list from the number color of the graph
     """
@@ -72,7 +72,8 @@ def draw_colored_graph(graph):
     """
     Draws a graph with colored nodes.
     """
-    number_list = number_list(graph)
+    number_list = []
+    number_list = make_number_list(graph)
     color_list = number_to_color(number_list)
     draw(graph.original_graph, color_list)
 
