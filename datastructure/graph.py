@@ -1,4 +1,4 @@
-from classes.node import Node
+from datastructure.node import Node
 
 
 class Graph:
