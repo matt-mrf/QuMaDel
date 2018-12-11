@@ -1,6 +1,8 @@
 from datastructure.graph import Graph
 from datastructure.node import Node
 from algorithms.hill_climber import hill_climber
+from algorithms.kempe import Kempe
+from algorithms.helpers import *
 import random
 
 input = {
@@ -35,7 +37,14 @@ input = {
 in_graph = Graph(input)
 in_graph.create_graph()
 
-print(in_graph.nodes)
+kempe = Kempe(4)
+
+in_graph = Graph(input)
+in_graph.create_graph()
+
+out = kempe.execute_kempe(in_graph)
+
+draw_colored_graph(out)
 
 # # gc = graph_checker(in_graph)
 # counter = 0
