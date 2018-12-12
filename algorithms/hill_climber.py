@@ -47,6 +47,7 @@ class hill_climber:
 
     def hill_climber_n_opt(self, in_graph, n):
 
+        iterations = 3000
         cost = 0
         for i in range(iterations):
 

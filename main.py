@@ -3,6 +3,7 @@ from datastructure.node import Node
 from algorithms.hill_climber import hill_climber
 from algorithms.kempe import Kempe
 from algorithms.helpers import *
+from algorithms.randomizer import Randomizer
 import random
 
 input = {
@@ -33,17 +34,23 @@ input = {
     '25': ['23', '24']
 }
 
-
-in_graph = Graph(input)
-in_graph.create_graph()
+costs1 = {1: 12, 2: 26, 3: 27, 4: 30, 5: 37, 6: 39, 7: 41}
 
 kempe = Kempe(4)
+hc = hill_climber(costs1)
 
 in_graph = Graph(input)
 in_graph.create_graph()
 
-out = kempe.execute_kempe(in_graph)
+rando = Randomizer()
+rand = rando.randomize_graph(in_graph, 7)
+while not rand:
+    rand = rando.randomize_graph(in_graph, 7)
 
+
+# out = kempe.execute_kempe(in_graph)
+out = hc.hill_climber_n_opt(rand, 2)
+# print(out.nodes)
 draw_colored_graph(out)
 
 # # gc = graph_checker(in_graph)
