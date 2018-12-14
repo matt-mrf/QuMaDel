@@ -1,10 +1,12 @@
-from classes.graph import Graph
-from classes.hill_climber import hill_climber
-from classes.greedy import greedy
-from classes.kempe import Kempe
-from classes.randomizer import Randomizer
+from datastructure.graph import Graph
+from datastructure.node import Node
+from algorithms.hill_climber import hill_climber
+from algorithms.kempe import Kempe
+from algorithms.helpers import *
+from algorithms.randomizer import Randomizer
+import csv
 import random
-import numpy as np
+import argparse
 
 costs1 = {1: 12, 2: 26, 3: 27, 4: 30, 5: 37, 6: 39, 7: 41}
 
@@ -169,6 +171,8 @@ kempe = Kempe(4)
 in_graph = Graph(input)
 in_graph.create_graph()
 
+kempe.execute_kempe(in_graph)
+
 # bf = Depth(costs1, 5)
 # bf.depth_first([], {}, 0, len(in_graph.nodes), in_graph)
 
@@ -182,7 +186,7 @@ in_graph.create_graph()
 
 # greedy = greedy(in_graph)
 
-hc = hill_climber(costs1)
+# hc = hill_climber(costs1)
 # hc.hill_climber(rand)
 
 #     in_graph = Graph(input)
@@ -194,13 +198,38 @@ hc = hill_climber(costs1)
 
 # hc = hill_climber(costs1)
 
-rando = Randomizer()
+# rando = Randomizer()
 # rand = rando.randomize_graph(in_graph, 7)
 # while not rand:
 #     rand = rando.randomize_graph(in_graph, 7)
 # hc.hill_climber_n_opt(rand, 2)
 
 # print(hc.hill_climber_annealing(rand))
+# cost_list = []
+# for i in range(3000):
+#     rand = rando.randomize_graph(in_graph, 7)
+#     while not rand:
+#         rand = rando.randomize_graph(in_graph, 7)
+#     cost_list.append(hc.hill_climber_n_opt(rand, 6))
+# print("n = 6")
+# print((cost_list))
+# print(min(cost_list))
+# print(np.mean(cost_list))
+# print(max(cost_list))
+
+
+# cost_list = []
+# for i in range(100):
+#     rand = rando.randomize_graph(in_graph, 7)
+#     while not rand:
+#         rand = rando.randomize_graph(in_graph, 7)
+#     cost_list.append(hc.hill_climber_annealing(rand))
+#     print(i)
+# print((cost_list))
+# print(min(cost_list))
+# print(np.mean(cost_list))
+# print(max(cost_list))
+
 # #
 # cost_list = []
 # for i in range(3000):
@@ -213,15 +242,15 @@ rando = Randomizer()
 # print(np.mean(cost_list))
 # print(max(cost_list))
 
-
-cost_list = []
-for i in range(100):
-    rand = rando.randomize_graph(in_graph, 7)
-    while not rand:
-        rand = rando.randomize_graph(in_graph, 7)
-    cost_list.append(hc.hill_climber_annealing(rand))
-    print(i)
-print((cost_list))
-print(min(cost_list))
-print(np.mean(cost_list))
-print(max(cost_list))
+#
+# cost_list = []
+# for i in range(2):
+#     rand = rando.randomize_graph(in_graph, 7)
+#     while not rand:
+#         rand = rando.randomize_graph(in_graph, 7)
+#     cost_list.append(hc.hill_climber_annealing(rand))
+#     print(i)
+# print((cost_list))
+# print(min(cost_list))
+# print(np.mean(cost_list))
+# print(max(cost_list))
