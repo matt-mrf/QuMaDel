@@ -57,6 +57,9 @@ def apply_color(leftover_colors):
 
 
 def draw_cost_list(cost_list, country, method):
+    """
+    draws a line chart with the costs against the iterations
+    """
     plt.plot(cost_list)
     plt.ylabel('Cost')
     plt.xlabel('iterations')
@@ -66,6 +69,9 @@ def draw_cost_list(cost_list, country, method):
 
 
 def get_costs(graph, costscheme):
+    """
+    returns the cost for given graph, with given costscheme
+    """
     total_costs = 0
     for key, node in graph.nodes.items():
         color = node.color
@@ -74,6 +80,10 @@ def get_costs(graph, costscheme):
 
 
 def calc_probability(old_costs, new_costs, temp):
+    """
+    calculate probability for accepting a new state with a worse score
+    the probablity decreases over time 
+    """
     if new_costs < old_costs:
         return 1.0
     else:
@@ -82,7 +92,7 @@ def calc_probability(old_costs, new_costs, temp):
 
 def dict_to_graph(dict):
     """
-    convert dictionary to graph
+    convert dictionary to graph object
     """
     in_graph = Graph(dict)
     in_graph.create_graph()
@@ -99,11 +109,7 @@ def diff(first, second):
 
 def csv_to_dict(input):
     """
-<<<<<<< HEAD
-    convert csv file to input (graph)
-=======
-    Reads graph csv and transform it to dictionary.
->>>>>>> 913f280e8bf5551e9bbd58ee693bbdf110daed26
+    Reads graph csv and transforms it to dictionary.
     """
     inputstring ="data/" + input + ".csv"
     data = {}
