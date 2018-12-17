@@ -81,6 +81,15 @@ aanliggende punten: 7.5 * 10^63
 Wanneer de constaints worden toegepast wordt de state space gellijk een stuk kleiner.
 >>>>>>> a53874397a0ee13748df7d9877b28ac188f0944b
 
+Kostenschema:
+n = landen/provincies
+i = {1,2,3,4}
+strict upperbound = n * max(kostenschema(i))
+strict lowerbound = n * min(kostenschema(i))
+
+Onze 4 landen zijn allemaal met minimaal 4 kleuren te kleuren.
+strict upperbound = n * max(kostenschema(i))
+strict lowerbound = n * min(kostenschema(i))
 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
