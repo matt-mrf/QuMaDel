@@ -82,7 +82,7 @@ def get_costs(graph, costscheme):
 def calc_probability(old_costs, new_costs, temp):
     """
     calculate probability for accepting a new state with a worse score
-    the probablity decreases over time 
+    the probablity decreases over time
     """
     if new_costs < old_costs:
         return 1.0
