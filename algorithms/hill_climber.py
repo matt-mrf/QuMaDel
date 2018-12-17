@@ -3,13 +3,13 @@ import random
 import copy
 
 
-class hill_climber:
+class Hill_climber:
 
     def __init__(self, costscheme):
         self.costscheme = costscheme
 
     def hill_climber(self, in_graph):
-        iterations = 1000000
+        iterations = 10000
 
         cost_list = []
         cost = 0
