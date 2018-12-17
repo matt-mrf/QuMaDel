@@ -1,7 +1,7 @@
 
-Theorie exploratie
+# Theorie exploratie
 
-Opdracht 1
+## Opdracht 1
 a) Verzin een zenderinrichting voor de Oekraïne. Iedere provincie moet een zendertype hebben, geen enkele twee aangrenzende provincies mogen hetzelfde zendertype hebben. Verzin een zenderinrichting voor het hele land, en hoe minder zendertypes je gebruikt, hoe beter.
 
 Zenderinrichting is te vergelijken met het kleuren van een landkaart. Beide zijn namelijk planaire grafen. Er bestaat een doorgerekend bewijs dat elke landkaart is te kleuren met 4 kleuren.
@@ -28,7 +28,7 @@ c) De produktie van zenders wordt in Rusland uiteraard ook door de overheid bere
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
-Opdracht 2
+## Opdracht 2
 Er zijn vier mogelijke kostenschema's bekend geworden. Bekijk voor ieder land welk kostenschema de voordeligste inrichting oplevert.
 
 Zendertype	Kosten 1	Kosten 2	Kosten 3	Kosten 4
@@ -47,12 +47,12 @@ Idee is misschien om node met hoogste graad een duurdere kleur te geven.
 hill climber
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
-Advanged
+## Advanced
 Omdat production in numbers goedkoper is, wordt iedere geplaatste zender van een type 10% goedkoper dan de vorige van hetzelfde type. Vind, met je algoritmes, opnieuw de beste oplossing voor de landen. Hoe vergelijken ze met de oplossingen van opgaven 1 en 2?
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
-State Space
+## State Space
 
 De statespace voor Radio Russia is gemakkelijk te berekenen, er zijn in totaal 7 verschillende zendtypes die per provincie geplaatst kunnen worden. De formule van de upperbound wordt hierdoor gemakkelijk berekend:
 
@@ -96,9 +96,9 @@ strict lowerbound = n * min(kostenschema(i))
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
-Resultaten costs (Bij 2500 iteraties en sample size van 3000)
+## Resultaten costs (Bij 2500 iteraties en sample size van 3000)
 
-Hillclimber n-opt:          
+### Hillclimber n-opt:          
 
 n=1
 Min = 628
@@ -135,7 +135,7 @@ Min = 656
 Avg = 700
 Max = 768
 
-Hillclimber annealing:
+### Hillclimber annealing:
 Min = 628
 Avg = 644,05
 Max = 695
