@@ -7,7 +7,7 @@ import csv
 
 
 # Build a dataframe with 4 connections
-def draw(graph, color_of_nodes):
+def draw_graph(graph, color_of_nodes):
     """
     Draws a graph of nodes. Nodes have the color of the color_of_nodes list of value
     """
@@ -45,7 +45,7 @@ def draw_colored_graph(graph):
     number_list = []
     number_list = make_number_list(graph)
     color_list = number_to_color(number_list)
-    draw(graph.original_graph, color_list)
+    draw_graph(graph.original_graph, color_list)
 
 
 def apply_color(leftover_colors):
@@ -55,6 +55,7 @@ def apply_color(leftover_colors):
     color = random.choice(leftover_colors)
     return color
 
+
 def draw_cost_list(cost_list, country, method):
     plt.plot(cost_list)
     plt.ylabel('Cost')
@@ -63,6 +64,7 @@ def draw_cost_list(cost_list, country, method):
     + country + " with " + method)
     plt.show()
 
+
 def get_costs(graph, costscheme):
     total_costs = 0
     for key, node in graph.nodes.items():
@@ -70,19 +72,21 @@ def get_costs(graph, costscheme):
         total_costs += costscheme[color]
     return total_costs
 
+
 def calc_probability(old_costs, new_costs, temp):
     if new_costs < old_costs:
         return 1.0
     else:
         return math.exp((old_costs - new_costs) / temp)
 
+
 def dict_to_graph(dict):
     """
     """
     in_graph = Graph(dict)
     in_graph.create_graph()
-
     return in_graph
+
 
 def diff(first, second):
     """
@@ -90,8 +94,10 @@ def diff(first, second):
     second = set(second)
     return [item for item in first if item not in second]
 
+
 def csv_to_dict(input):
     """
+    Reads graph csv and transform it to dictionary.
     """
     inputstring ="data/" + input + ".csv"
     data = {}
