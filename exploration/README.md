@@ -95,7 +95,7 @@ strict lowerbound = n * min(kostenschema(i))
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
-Resultaten costs (Bij 2500 iteraties en sample size van 1000)
+Resultaten costs (Bij 2500 iteraties en sample size van 3000)
 
 Hillclimber n-opt:          
 
