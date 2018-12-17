@@ -57,4 +57,14 @@ like so
 
 
 Next, the made graph will be shown regardless of chosen algorithm.
+
+The legend for the colored graph from color to transmitter type is as follows:
+red ==> 1
+blue ==> 2
+orange ==> 3
+yellow ==> 4
+purple ==> 5
+green ==> 6
+pink ==> 7
+
 ![](results/graph.png)
