@@ -88,6 +88,7 @@ class Graph:
 
     def costs(self, scheme):
         total = 0
+        # apply price of each node to total
         for key, node in self.nodes.items():
             total += self.schemes[scheme][node.color]
 

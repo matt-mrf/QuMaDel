@@ -5,7 +5,8 @@ import copy
 
 class Kempe:
     """
-    Kempe's algorithm to k-color a graph
+    Kempe's algorithm to k-color a graph via finding nodes < k self,
+    that will be put on a stack and be colored in via the stack order
     """
 
     def __init__(self, amount, costscheme):
@@ -17,46 +18,41 @@ class Kempe:
         self.costscheme = costscheme
 
     def execute_kempe(self, in_graph):
-        """
-        Take empty Graph
-        save for later coloring
-        copy for extracting nodes
-        k = number of desired colors - 1
-        ---
-        if there are nodes with degree < k:
-            find node with degree < k
-            remove it and update graph
-            put removed node in stack
-        else:
-            pick arbitrary node, remove and put on stack
 
-        color nodes in stack order in saved graph
-            find color for node that isnt already used in adjecent node
-            if no such color exists, keep empty and save node
-        """
         # save graph for later coloring
         out_graph = in_graph
         cur_graph = in_graph
-        k = len(self.all_colors)  # number of colors to initially use
+
+        # number of colors to initially use
+        k = len(self.all_colors)
         stack = []
         while not out_graph.found():
+
         # for i in range(1):
             out_graph = copy.deepcopy(in_graph)
             cur_graph = copy.deepcopy(in_graph)
+
             # do for length of amount of nodes
             for i in range(len(cur_graph.nodes)):
                 nodes = cur_graph.nodes
+
                 # find node with degree less than k
                 cur_node = None  # node to be deleted later
                 i = 0
                 for key, node in nodes.items():
                     degree = len(node.neighbours)
-                    if degree < k:  # find node with degree < k
+
+                    # find node with degree < k
+                    if degree < k:
                         cur_node = node
                         break
-                if cur_node is None:  # if there are no nodes with degree < k
+
+                # if there are no nodes with degree < k
+                if cur_node is None:
+
                     # pick node with lowest degree
                     cur_node = random.choice(list(nodes.values()))
+
                 # remove node from working graph and put on stack
                 cur_graph.delete_node(cur_node.name)
                 stack.append(cur_node.name)
@@ -67,22 +63,31 @@ class Kempe:
                 next_node = stack.pop()
                 node_to_color = out_graph.nodes[next_node]
 
+                # make list of neighbouring colors of node
                 neighbour_colors = []
                 for neighbour in node_to_color.neighbours:
                     neighbour_colors.append(neighbour.color)
 
+                # make list of leftover possible colors
                 leftover_colors = diff(self.all_colors, neighbour_colors)
-                if leftover_colors == []:  # if there are no colors left to give
+
+                # if there ar no colors left to give
+                if leftover_colors == []:
+
                     # save node to color later
                     uncolored_nodes.append(node_to_color)
                 else:
+
+                    # apply color to node from leftover color list
                     new_color = apply_color(leftover_colors)
                     node_to_color.color = new_color
+
 
             for node in uncolored_nodes:
                 node.color = self.amount
 
             gc = out_graph.check_graph()
 
+        # apply prices of costscheme to costs with functioin (get_costs)
         cost = get_costs(out_graph, self.costscheme)
         return [out_graph, cost]

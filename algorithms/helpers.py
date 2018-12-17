@@ -78,6 +78,7 @@ def calc_probability(old_costs, new_costs, temp):
 
 def dict_to_graph(dict):
     """
+    convert dictionary to graph
     """
     in_graph = Graph(dict)
     in_graph.create_graph()
@@ -86,12 +87,14 @@ def dict_to_graph(dict):
 
 def diff(first, second):
     """
+    function to calculate the differences between two lists
     """
     second = set(second)
     return [item for item in first if item not in second]
 
 def csv_to_dict(input):
     """
+    convert csv file to input (graph)
     """
     inputstring ="data/" + input + ".csv"
     data = {}
