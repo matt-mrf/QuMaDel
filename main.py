@@ -1,6 +1,6 @@
 from datastructure.graph import Graph
 from datastructure.node import Node
-from algorithms.hill_climber import hill_climber
+from algorithms.hill_climber import Hill_climber
 from algorithms.kempe import Kempe
 from algorithms.greedy import Greedy
 from algorithms.randomizer import Randomizer

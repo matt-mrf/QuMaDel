@@ -3,7 +3,7 @@ import random
 import copy
 
 
-class hill_climber:
+class Hill_climber:
 
     def __init__(self, costscheme):
         self.costscheme = costscheme
