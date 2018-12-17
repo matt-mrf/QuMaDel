@@ -13,7 +13,7 @@ For this project, networkx version 2.2 and matplotlib v3 are used, in combinatio
 
 The install instructions for these programs are listed [here](requirements.md).
 
-## usage
+## Instructions
 
 The program is run through main.py, located in the root folder.
 
@@ -53,7 +53,7 @@ Will produce a colored graph of China, with the hill climber algorithm, and retu
 ### Output
 The program will output a line graph when asking for a hill climbing algorithm approach
 like so
-![](results/chart.png)
+![](images/chart.png)
 
 
 Next, the made graph will be shown regardless of chosen algorithm.
@@ -75,4 +75,4 @@ green ==> 6
 pink ==> 7
 
 
-![](results/graph.png)
+![](images/graph.png)
