@@ -31,25 +31,22 @@ c) De produktie van zenders wordt in Rusland uiteraard ook door de overheid bere
 ## Opdracht 2
 Er zijn vier mogelijke kostenschema's bekend geworden. Bekijk voor ieder land welk kostenschema de voordeligste inrichting oplevert.
 
-Zendertype	Kosten 1	Kosten 2	Kosten 3	Kosten 4
-    A      	  12	     19	       16	        3
-    B	        26	     20	       17	       34
-    C 	      27	     21	       31	       36
-    D	        30	     23	       33	       39
-    E	        37	     36	       36	       41
-    F	        39	     37	       56	       43
-    G	        41	     38	       57	       58
-
+![](../images/schemes.png)
 
 Lastige van het probleem is dat wanneer je 1 zendertype toevoegd die duurder is, je misschien heel vaak eentje kan gebruiken die goedkoop is.
-Idee is misschien om node met hoogste graad een duurdere kleur te geven.
+Idee is misschien om node met hoogste graad een duurdere kleur te geven. Dit is een future goal.
 
-hill climber
-----------------------------------------------------------------------------------------------------------------------------------------------
+### Aanpak
+Onze aanpak bevat een aantal variaties van een hill climber.
 
-## Advanced
-Omdat production in numbers goedkoper is, wordt iedere geplaatste zender van een type 10% goedkoper dan de vorige van hetzelfde type. Vind, met je algoritmes, opnieuw de beste oplossing voor de landen. Hoe vergelijken ze met de oplossingen van opgaven 1 en 2?
+#### Klassieke hill climber
+We hebben de klassieke hill climber, die een node zoekt om te veranderen, dit doet en dan kijkt of er verbetering is. Dit werkt goed om lagere kosten te krijgen, maar komt al snel in een lokaal optimum. Hierdoor is de kans klein dat met een keer dit uitvoeren de beste score behaald wordt.
 
+#### n-opt hill_climber
+In deze variatie kiezen we niet een node die veranderd kan worden, maar n. Wij verwachtten dat dit betere resultaten zou geven, maar dit bleek niet. Er is nog steeds sprake van lokale optima, maar ze worden minder snel behaald dan de klassieke hill climber.
+
+#### Simulated annealing
+Deze variatie van de hill climber doet hetzelfde als onze klassieke hill climber, maar accepteert verslechteringen in de kosten wel. De acceptatiekans wordt wel kleiner naarmate de iteraties vorderen. Met simulated annealing hebben we tot nog toe de beste resultaten geboekt.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
 ## State Space
@@ -91,7 +88,6 @@ strict lowerbound = n * min(kostenschema(i))
 Onze 4 landen zijn allemaal met minimaal 4 kleuren te kleuren.
 strict upperbound = n * max(kostenschema(i))
 strict lowerbound = n * min(kostenschema(i))
-
 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,11 +1,15 @@
 # QuMaDel
 
 ## Case
-Our case is RadioRussia, to be found at http://heuristieken.nl/wiki/index.php?title=Radio_Russia.
+Our case is RadioRussia, to be found [here](http://heuristieken.nl/wiki/index.php?title=Radio_Russia).
 In this case we are given a problem, to solve via heuristics.
 
 The problem is as following:
 Four  different countries: USA, Russia, Ukraine and China all are divided in states/provinces. All these states/provinces need radio transmitters. The problem we face is that no neighboring states/provinces can have the same type of transmitter.
+
+An accompanying problem with this is, that there are several cost schemes, that
+
+The attempted solutions to these problem are explained and shown in [the exploration](exploration/README.md) and [the results](results/README.md)
 
 ## Preparation
 

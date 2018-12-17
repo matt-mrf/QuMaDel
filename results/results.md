@@ -121,4 +121,4 @@ that runs for about 130.000 iterations, there is hardly any difference.
 ## Dicussion
 
 The annealing algorithm is run only once, therefore we suspect lower scores are possible.
-We unfortunately have no time to prove this, because there's no time to run the program.
+We unfortunately have no time to prove this, because there's no time left to run the program.
