@@ -1,6 +1,6 @@
+from algorithms.helpers import diff, calc_probability, get_costs
 import random
 import copy
-import math
 
 
 class hill_climber:
@@ -9,12 +9,16 @@ class hill_climber:
         self.costscheme = costscheme
 
     def hill_climber(self, in_graph):
+        iterations = 3000
 
+        cost_list = []
         cost = 0
-        for i in range(1000):
 
-            initial_costs = self.get_costs(in_graph)
+        for i in range(iterations):
+
+            initial_costs = get_costs(in_graph, self.costscheme)
             cost = initial_costs
+            cost_list.append(cost)
 
             found = False
             while not found:
@@ -25,7 +29,7 @@ class hill_climber:
                 for neighbour in cur_node.neighbours:
                     neighbour_colors.append(neighbour.color)
 
-                available_colors = self.diff(
+                available_colors = diff(
                     list(range(1, len(self.costscheme) + 1)), neighbour_colors)
 
                 if len(available_colors) > 1:
@@ -38,21 +42,24 @@ class hill_climber:
                 new_color = random.choice(available_colors)
                 cur_node.color = new_color
 
-            new_costs = self.get_costs(in_graph)
+            new_costs = get_costs(in_graph, self.costscheme)
 
             if new_costs > initial_costs:
                 cur_node.color = original_color
-        print(cost)
-        return cost
+
+        lowest_cost = cost_list[-1]
+        return [in_graph, cost_list, lowest_cost]
 
     def hill_climber_n_opt(self, in_graph, n):
 
-        iterations = 3000
-        cost = 0
+        iterations = 15000
+
+        cost_list = []
         for i in range(iterations):
 
-            initial_costs = self.get_costs(in_graph)
+            initial_costs = get_costs(in_graph, self.costscheme)
             cost = initial_costs
+            cost_list.append(cost)
 
             checked_nodes = {}
             for j in range(n):
@@ -68,7 +75,7 @@ class hill_climber:
                     for neighbour in cur_node.neighbours:
                         neighbour_colors.append(neighbour.color)
 
-                    available_colors = self.diff(
+                    available_colors = diff(
                         list(range(1, len(self.costscheme) + 1)), neighbour_colors)
 
                     if len(available_colors) > 1:
@@ -81,25 +88,30 @@ class hill_climber:
                         new_color = random.choice(available_colors)
                         cur_node.color = new_color
 
-            new_costs = self.get_costs(in_graph)
+            new_costs = get_costs(in_graph, self.costscheme)
 
             if new_costs > initial_costs:
                 for name, color in checked_nodes.items():
                     in_graph.nodes[name].color = color
 
-        return in_graph
+        lowest_cost = cost_list[-1]
+        return [in_graph, cost_list, lowest_cost]
 
     def hill_climber_annealing(self, in_graph):
 
-        tMax = 100000
+        tMax = 30000
         temp = tMax
         tMin = 0.1
         cooling = 0.0001
 
-        initial_costs = self.get_costs(in_graph)
+        cost_list = []
+
+        initial_costs = get_costs(in_graph, self.costscheme)
 
         cost = initial_costs
+
         while temp > tMin:
+            cost_list.append(cost)
 
             found = False
             while not found:
@@ -110,7 +122,7 @@ class hill_climber:
                 for neighbour in cur_node.neighbours:
                     neighbour_colors.append(neighbour.color)
 
-                available_colors = self.diff(
+                available_colors = diff(
                     list(range(1, len(self.costscheme) + 1)), neighbour_colors)
 
                 if len(available_colors) > 1:
@@ -122,9 +134,9 @@ class hill_climber:
                     new_color = random.choice(available_colors)
                     cur_node.color = new_color
 
-            new_costs = self.get_costs(in_graph)
+            new_costs = get_costs(in_graph, self.costscheme)
 
-            if self.calc_probability(cost, new_costs, temp) > random.random():
+            if calc_probability(cost, new_costs, temp) > random.random():
                 cost = new_costs
             else:
                 # revert back to previous graph if not accepted
@@ -132,26 +144,5 @@ class hill_climber:
 
             temp *= 1-cooling
 
-                # # partly based on https://nl.wikipedia.org/wiki/Simulated_annealing
-                # acceptance_prob = math.exp()
-                # for name, color in checked_nodes.items():
-                #     in_graph.nodes[name].color = color
-        return in_graph
-
-    def calc_probability(self, old_costs, new_costs, temp):
-        if new_costs < old_costs:
-            return 1.0
-        else:
-            return math.exp((old_costs - new_costs) / temp)
-
-    def diff(self, first, second):
-        second = set(second)
-        return [item for item in first if item not in second]
-
-    def get_costs(self, graph):
-        total_costs = 0
-        for key, node in graph.nodes.items():
-            color = node.color
-            # print(color)
-            total_costs += self.costscheme[color]
-        return total_costs
+        lowest_cost = cost_list[-1]
+        return [in_graph, cost_list, lowest_cost]

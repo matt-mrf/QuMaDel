@@ -6,11 +6,6 @@ class Graph:
     Graph class, representing a country with provinces or states
     """
 
-    costs1 = {1: 12, 2: 26, 3: 27, 4: 30, 5: 37, 6: 39, 7: 41}
-    # costs2 = {1: 19, 2: 20, 3: 21, 4: 23, 5: 36, 6: 37, 7: 38}
-    # costs3 = {1: 16, 2: 17, 3: 31, 4: 33, 5: 36, 6: 56, 7: 57}
-    # costs4 = {1: 3, 2: 34, 3: 36, 4: 39, 5: 41, 6: 43, 7: 58}
-
     def __init__(self, graph_dict):
         """
         initialize object by giving it a dictonary representing the
@@ -22,6 +17,12 @@ class Graph:
         self.counter = 0
         self.neighbour_colors = []
         self.wrong_nodes = []
+        self.schemes = {
+        1 : {1: 12, 2: 26, 3: 27, 4: 30, 5: 37, 6: 39, 7: 41},
+        2 : {1: 19, 2: 20, 3: 21, 4: 23, 5: 36, 6: 37, 7: 38},
+        3 : {1: 16, 2: 17, 3: 31, 4: 33, 5: 36, 6: 56, 7: 57},
+        4 : {1: 3, 2: 34, 3: 36, 4: 39, 5: 41, 6: 43, 7: 58}
+        }
 
     def create_graph(self):
         """
@@ -91,10 +92,10 @@ class Graph:
         else:
             return False
 
-    def costs(self):
+    def costs(self, scheme):
         total = 0
         for key, node in self.nodes.items():
-            total += self.costs1[node.color]
+            total += self.schemes[scheme][node.color]
 
         return total
 

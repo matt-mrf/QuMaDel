@@ -1,3 +1,4 @@
+from algorithms.helpers import diff
 import random
 import copy
 
@@ -35,17 +36,18 @@ class Kempe:
         # save graph for later coloring
         out_graph = in_graph
         cur_graph = in_graph
-        k = self.amount - 1  # number of colors to initially use
+        k = len(self.all_colors)  # number of colors to initially use
         stack = []
         while not out_graph.found():
+        # for i in range(1):
             out_graph = copy.deepcopy(in_graph)
             cur_graph = copy.deepcopy(in_graph)
             # do for length of amount of nodes
             for i in range(len(cur_graph.nodes)):
-                # pp.pprint(cur_graph.nodes)
                 nodes = cur_graph.nodes
                 # find node with degree less than k
                 cur_node = None  # node to be deleted later
+                i = 0
                 for key, node in nodes.items():
                     degree = len(node.neighbours)
                     if degree < k:  # find node with degree < k
@@ -54,7 +56,6 @@ class Kempe:
                 if cur_node is None:  # if there are no nodes with degree < k
                     # pick node with lowest degree
                     cur_node = random.choice(list(nodes.values()))
-
                 # remove node from working graph and put on stack
                 cur_graph.delete_node(cur_node.name)
                 stack.append(cur_node.name)
@@ -68,20 +69,13 @@ class Kempe:
                 neighbour_colors = []
                 for neighbour in node_to_color.neighbours:
                     neighbour_colors.append(neighbour.color)
-                # print(f"neighbour_colors {neighbour_colors}")
 
-                # print(f"node to color: {node_to_color}")
-                # for neighbour in node_to_color.neighbours:
-                    # print(f"neighbour: {neighbour}")
-
-                leftover_colors = self.diff(self.all_colors, neighbour_colors)
-                # print(leftover_colors)
+                leftover_colors = diff(self.all_colors, neighbour_colors)
                 if leftover_colors == []:  # if there are no colors left to give
                     # save node to color later
                     uncolored_nodes.append(node_to_color)
                 else:
                     new_color = self.apply_color(leftover_colors)
-                    # print(new_color)
                     node_to_color.color = new_color
 
             for node in uncolored_nodes:
@@ -89,10 +83,6 @@ class Kempe:
 
             gc = out_graph.check_graph()
         return out_graph
-
-    def diff(self, first, second):
-        second = set(second)
-        return [item for item in first if item not in second]
 
     def apply_color(self, leftover_colors):
         """

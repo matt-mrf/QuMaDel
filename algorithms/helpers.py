@@ -1,6 +1,7 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 from datastructure.graph import Graph
+import math
 import csv
 
 
@@ -45,8 +46,44 @@ def draw_colored_graph(graph):
     color_list = number_to_color(number_list)
     draw(graph.original_graph, color_list)
 
+def draw_cost_list(cost_list, country, method):
+    plt.plot(cost_list)
+    plt.ylabel('Cost')
+    plt.xlabel('iterations')
+    plt.title('Cost graph for '
+    + country + " with " + method)
+    plt.show()
+
+def get_costs(graph, costscheme):
+    total_costs = 0
+    for key, node in graph.nodes.items():
+        color = node.color
+        total_costs += costscheme[color]
+    return total_costs
+
+def calc_probability(old_costs, new_costs, temp):
+    if new_costs < old_costs:
+        return 1.0
+    else:
+        return math.exp((old_costs - new_costs) / temp)
+
+def dict_to_graph(dict):
+    """
+    """
+    in_graph = Graph(dict)
+    in_graph.create_graph()
+
+    return in_graph
+
+def diff(first, second):
+    """
+    """
+    second = set(second)
+    return [item for item in first if item not in second]
 
 def csv_to_dict(input):
+    """
+    """
     inputstring ="data/" + input + ".csv"
     data = {}
     with open(inputstring, newline='') as csvfile:
