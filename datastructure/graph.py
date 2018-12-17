@@ -53,6 +53,12 @@ class Graph:
         del self.nodes[node_name]
 
     def check_graph(self):
+        """
+        Checks to see if a graph is valid,
+        meaning that there are no adjecent nodes with the same colorself.
+
+        returns true if the graph is valid
+        """
         self.counter = 0
         self.wrong_nodes = []
         # check each node
@@ -85,43 +91,3 @@ class Graph:
             return True
         else:
             return False
-
-    def costs(self, scheme):
-        total = 0
-        # apply price of each node to total
-        for key, node in self.nodes.items():
-            total += self.schemes[scheme][node.color]
-
-        return total
-
-
-if __name__ == "__main__":
-    ukraine = {'A': ['F', 'B'],
-               'B': ['A', 'F', 'E', 'D', 'C'],
-               'C': ['B', 'D'],
-               'D': ['C', 'B', 'E', 'H'],
-               'E': ['D', 'B', 'F', 'G', 'H'],
-               'F': ['A', 'B', 'E', 'G', 'J'],
-               'G': ['E', 'F', 'J', 'I', 'H'],
-               'H': ['D', 'E', 'G', 'I'],
-               'I': ['H', 'G', 'J', 'K', 'N', 'O', 'L'],
-               'J': ['F', 'G', 'I', 'K'],
-               'K': ['J', 'I', 'N', 'R', 'M'],
-               'L': ['I', 'O', 'P'],
-               'M': ['Q', 'K'],
-               'N': ['K', 'R', 'O', 'I'],
-               'O': ['I', 'N', 'R', 'U', 'P', 'L'],
-               'P': ['L', 'O', 'U', 'S'],
-               'Q': ['M', 'R'],
-               'R': ['K', 'Q', 'W', 'U', 'O', 'N'],
-               'S': ['P', 'U', 'V', 'T'],
-               'T': ['S'],
-               'U': ['R', 'W', 'X', 'V', 'S', 'P', 'O'],
-               'V': ['S', 'U', 'X'],
-               'W': ['R', 'U', 'X', 'Y'],
-               'X': ['V', 'U', 'W', 'Y'],
-               'Y': ['W', 'X']}
-
-    graph_ukraine = Graph(ukraine)
-    graph_ukraine.create_graph()
-    print(graph_ukraine.nodes)

@@ -27,7 +27,7 @@ parser.add_argument(
     help="The algorithm that will be used to make and colour the graph.")
 parser.add_argument(
     "-clr", "--colors", choices=[1, 2, 3, 4, 5, 6, 7],
-    help="Which cost scheme to calculate costs with", type=int)
+    help="The amount of colors to use", type=int)
 parser.add_argument(
     "-n", "--n_opt", choices=[1, 2, 3, 4, 5],
     help="Number of nodes to change when using hill_climber_n_opt", type=int)

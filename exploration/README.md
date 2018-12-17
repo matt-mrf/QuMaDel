@@ -44,8 +44,6 @@ Zendertype	Kosten 1	Kosten 2	Kosten 3	Kosten 4
 Lastige van het probleem is dat wanneer je 1 zendertype toevoegd die duurder is, je misschien heel vaak eentje kan gebruiken die goedkoop is.
 Idee is misschien om node met hoogste graad een duurdere kleur te geven.
 
-n-opt hill climber ge
-
 hill climber
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -72,18 +70,17 @@ Invloed constaints op State Space
 Wanneer de constaints worden toegepast wordt de state space een stuk kleiner.
 Dit is ook van grote invloed op de Brute force, het getal is te groot om door te berekenen. Het probleem hiermee is dat de we niet precies weten hoeveel de state space kleiner wordt, want dat ligt ook aan de vorm van de graaf. Dus we kunnen geen garanties geven en daarom schatten we de state space in met aantal zendtypes ^ aantal provincies.
 
-Als een berekening een 1/10 seconde duurt:
 brute force bij losse punten = 4.1195394 × 10^12 jaar (400 miljard jaar)
 brute force bij aanliggende punten = 6.97152822 × 10^10 jaar (7 miljard jaar)
 
+Als een berekening een 1/10 seconde duurt:
 
 state space Rusland:
 losse punten: 7^82 = 1.986 * 10^69
 aanliggende punten: 7.5 * 10^63
 
 We hebben niet genoeg tijd om dit allemaal door te berekenen om onze computers.
-
-Wanneer de constaints worden toegepast wordt de state space gelijk een stuk kleiner.
+Wanneer de constraints worden toegepast wordt de state space gelijk een stuk kleiner.
 
 Kostenschema:
 n = landen/provincies
@@ -132,13 +129,11 @@ n = 6
 Min = 647
 Avg = 692
 Max = 756
-
+g
 n = 7
 Min = 656
 Avg = 700
 Max = 768
-
-
 
 Hillclimber annealing:
 Min = 628
