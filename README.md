@@ -7,7 +7,7 @@ In this case we are given a problem, to solve via heuristics.
 The problem is as following:
 Four  different countries: USA, Russia, Ukraine and China all are divided in states/provinces. All these states/provinces need radio transmitters. The problem we face is that no neighboring states/provinces can have the same type of transmitter.
 
-An accompanying problem with this is, that there are several cost schemes, that
+An accompanying problem with this is, that there are several cost schemes, that are provided, and the aim is to find the best cost scheme for each country and to try and find the lowest score. 
 
 The attempted solutions to these problem are explained and shown in [the exploration](exploration/README.md) and [the results](results/README.md)
 
