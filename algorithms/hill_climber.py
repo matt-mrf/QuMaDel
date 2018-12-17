@@ -9,7 +9,7 @@ class Hill_climber:
         self.costscheme = costscheme
 
     def hill_climber(self, in_graph):
-        iterations = 10000
+        iterations = 5000
 
         cost_list = []
         cost = 0
