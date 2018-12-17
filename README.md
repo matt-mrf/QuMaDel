@@ -34,7 +34,7 @@ optional arguments:
                         The algorithm that will be used to make and colour the
                         graph.
   -clr {1,2,3,4,5,6,7}, --colors {1,2,3,4,5,6,7}
-                        Which cost scheme to calculate costs with
+                        The amount of colors to use
   -n {1,2,3,4,5}, --n_opt {1,2,3,4,5}
                         Number of nodes to change when using
                         hill_climber_n_opt
@@ -49,3 +49,12 @@ $ python3 main.py -c china -a hill_climber -cs 3
 ```
 
 Will produce a colored graph of China, with the hill climber algorithm, and returns the cost based on costscheme 3. The program will show the cost against each iteration in a line plot, and then the colored graph using networkx.
+
+### Output
+The program will output a line graph when asking for a hill climbing algorithm approach
+like so
+![](results/chart.png)
+
+
+Next, the made graph will be shown regardless of chosen algorithm.
+![](results/graph.png)
