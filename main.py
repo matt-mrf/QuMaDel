@@ -100,7 +100,7 @@ elif args.algorithm == "hill_climber":
         print("Error:")
         print("Please provide a costscheme with -cs [1,2,3,4]")
     else:
-        hc = hill_climber(scheme)
+        hc = Hill_climber(scheme)
 
         rando = Randomizer()
         random_graph = rando.randomize_graph(in_graph, 7)
@@ -108,7 +108,7 @@ elif args.algorithm == "hill_climber":
         while not random_graph:
             random_graph = rando.randomize_graph(in_graph, 7)
 
-        hc_graph = hc.hill_climber(random_graph)
+        hc_graph = hc.Hill_climber(random_graph)
         cost_list = hc_graph[1]
         lowest_cost = cost_list[-1]
 
@@ -123,7 +123,7 @@ elif args.algorithm == "hill_climber_n_opt":
         print("Error:")
         print("Please provide an n for n-opt with -n [1,2,3]")
     else:
-        hc = hill_climber(scheme)
+        hc = Hill_climber(scheme)
 
         rando = Randomizer()
         random_graph = rando.randomize_graph(in_graph, 7)
@@ -143,7 +143,7 @@ elif args.algorithm == "hill_climber_annealing":
         print("Error:")
         print("Please provide a costscheme with -cs [1,2,3,4]")
     else:
-        hc = hill_climber(scheme)
+        hc = Hill_climber(scheme)
 
         rando = Randomizer()
         random_graph = rando.randomize_graph(in_graph, 7)

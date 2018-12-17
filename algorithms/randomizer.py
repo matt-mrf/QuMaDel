@@ -6,6 +6,7 @@ class Randomizer:
 
     def randomize_graph(self, in_graph, amount):
         """
+        Random algoritm to color the graph's nodes
         """
         random.seed()
         removed_graph = copy.deepcopy(in_graph)
@@ -18,6 +19,7 @@ class Randomizer:
             rand_int = random.choice(list(removed_graph.nodes.keys()))
             random_node = in_graph.nodes[str(rand_int)]
 
+            # make list of neighbouring colors of node
             neighbour_colors = []
             for neighbour in random_node.neighbours:
                 neighbour_colors.append(neighbour.color)
