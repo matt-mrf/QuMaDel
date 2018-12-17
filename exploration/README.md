@@ -23,8 +23,8 @@ Idem voor hierboven
 
 c) De produktie van zenders wordt in Rusland uiteraard ook door de overheid beregeld. Het is het goedkoper om minder zendertypes te hebben, maar ook om van alle zendertypes ongeveer evenveel te hebben. Probeer voor ieder land met ieder minimumaantal zendertypes te bepalen hoe een evenwichtige verdeling eruit zou zien, en kijk of een inrichting mogelijk is met zo'n verdeling.
 
-- kempe heuristic toepassen. Ipv random kleur aan node toepassen, kleur toepassen die minst is gebruikt. Dus door middel van lijst bijhouden hoevaak een kleur al is gebruikt.
-Iteratief algortime op toelaatbare oplossing die aan constraints voldoet. Een node met de kleur die het vaakst is gebruikt, de kleur geven die het minst is gebruikt en checken of oplossing nof steeds toelaatbaar is.
+- Kempe heuristiek toepassen. Ipv random kleur aan node toepassen, kleur toepassen die minst is gebruikt. Dus door middel van lijst bijhouden hoevaak een kleur al is gebruikt.
+- Iteratief algortime op toelaatbare oplossing die aan constraints voldoet. Een node met de kleur die het vaakst is gebruikt, de kleur geven die het minst is gebruikt en checken of oplossing nog steeds toelaatbaar is.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -40,9 +40,11 @@ Zendertype	Kosten 1	Kosten 2	Kosten 3	Kosten 4
     F	        39	     37	       56	       43
     G	        41	     38	       57	       58
 
-Branch and bound.
+
 Lastige van het probleem is dat wanneer je 1 zendertype toevoegd die duurder is, je misschien heel vaak eentje kan gebruiken die goedkoop is.
 Idee is misschien om node met hoogste graad een duurdere kleur te geven.
+
+n-opt hill climber ge
 
 hill climber
 ----------------------------------------------------------------------------------------------------------------------------------------------
@@ -54,7 +56,7 @@ Omdat production in numbers goedkoper is, wordt iedere geplaatste zender van een
 
 State Space
 
-De statespace voor RadioRussia is gemakkelijk te berekenen, er zijn in totaal 7 verschillende zendtypes die per provincie geplaatst kunnen worden. De formule van de upperbound wordt hierdoor gemakkelijk berekend:
+De statespace voor Radio Russia is gemakkelijk te berekenen, er zijn in totaal 7 verschillende zendtypes die per provincie geplaatst kunnen worden. De formule van de upperbound wordt hierdoor gemakkelijk berekend:
 
 State Space (losse punten) = aantal zendtypes ^ aantal provincies
 
@@ -68,18 +70,20 @@ aanliggende punten: 2.2 * 10^19
 
 Invloed constaints op State Space
 Wanneer de constaints worden toegepast wordt de state space een stuk kleiner.
-Dit is ook van grote invloed op de Brute force, het getal is te groot om door te berekenen. Gaat te lang duren.
+Dit is ook van grote invloed op de Brute force, het getal is te groot om door te berekenen. Het probleem hiermee is dat de we niet precies weten hoeveel de state space kleiner wordt, want dat ligt ook aan de vorm van de graaf. Dus we kunnen geen garanties geven en daarom schatten we de state space in met aantal zendtypes ^ aantal provincies.
 
+Als een berekening een 1/10 seconde duurt:
 brute force bij losse punten = 4.1195394 × 10^12 jaar (400 miljard jaar)
 brute force bij aanliggende punten = 6.97152822 × 10^10 jaar (7 miljard jaar)
 
-(Als een berekening een 10e van een seconde duurt)
 
-Rusland:
+state space Rusland:
 losse punten: 7^82 = 1.986 * 10^69
 aanliggende punten: 7.5 * 10^63
 
-Wanneer de constaints worden toegepast wordt de state space gellijk een stuk kleiner.
+We hebben niet genoeg tijd om dit allemaal door te berekenen om onze computers.
+
+Wanneer de constaints worden toegepast wordt de state space gelijk een stuk kleiner.
 
 Kostenschema:
 n = landen/provincies
@@ -99,25 +103,42 @@ Resultaten costs (Bij 2500 iteraties en sample size van 3000)
 
 Hillclimber n-opt:          
 
-            n=1
+n=1
 Min = 628
 Avg = 681.22
 Max = 755
 
-            n=2
+n=2
 Min = 628
 Avg = 679.05
 Max = 744
 
-            n=3
+n=3
 Min = 640
 Avg = 682.645
 Max = 740
 
-            n=4
+n=4
 Min = 643
 Avg = 691/74
 Max = 756
+
+n = 5
+Min =  642
+Avg = 685
+Max = 752
+
+n = 6
+Min = 647
+Avg = 692
+Max = 756
+
+n = 7
+Min = 656
+Avg = 700
+Max = 768
+
+
 
 Hillclimber annealing:
 Min = 628
