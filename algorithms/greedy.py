@@ -1,66 +1,37 @@
+from algorithms.helpers import diff, apply_color, get_costs
 import random
 import pprint
 
 
-class greedy:
+class Greedy:
 
     """
     Uses an pre made graph, and optimises it by changing
     the color of the neighbours and checking the result
     """
-    scheme = {1: 12, 2: 26, 3: 27, 4: 30, 5: 37, 6: 39, 7: 41}
 
-    def __init__(self, input):
+    def __init__(self, input, costscheme):
         self.input = input
         self.all_colors = [1, 2, 3, 4, 5, 6, 7]
+        self.costscheme = costscheme
 
-    def hillclimber_fill(self):
+    def greedy_fill(self):
         gc = self.input.check_graph()
         while not self.input.found():
-            print("not found")
             for counter, node in enumerate(self.input.wrong_nodes):
                 neighbour_colors = []
                 for neighbour in node.neighbours:
                     neighbour_colors.append(neighbour.color)
 
-                leftover_colors = self.diff(self.all_colors, neighbour_colors)
+                leftover_colors = diff(self.all_colors, neighbour_colors)
                 if leftover_colors != []:
-                    new_color = self.apply_color(leftover_colors)
+                    new_color = apply_color(leftover_colors)
                     gc[1][counter].color = new_color
 
             gc = self.input.check_graph()
 
-        pp = pprint.PrettyPrinter()
-        return self.input
-        # pp.pprint(self.input.nodes)
-
-    def hillclimber_fill_counter(self):
-        gc = self.input.check_graph()
-        while not self.input.found():
-            print("not found")
-            for counter, node in enumerate(self.input.wrong_nodes):
-                neighbour_colors = []
-                for neighbour in node.neighbours:
-                    neighbour_colors.append(neighbour.color)
-
-                leftover_colors = self.diff(self.all_colors, neighbour_colors)
-                if leftover_colors != []:
-                    new_color = self.apply_color(leftover_colors)
-                    gc[1][counter].color = new_color
-
-            gc = self.input.check_graph()
-
-    def diff(self, first, second):
-        second = set(second)
-        return [item for item in first if item not in second]
-
-    def apply_color(self, leftover_colors):
-        """
-        Applies a random color from given leftover colors.
-        """
-        color = random.choice(leftover_colors)
-        # print(f"new color {color}")
-        return color
+        cost = get_costs(self.input, self.costscheme)
+        return [self.input, cost]
 
 # find wrong node
 # find color of neighborig nodes

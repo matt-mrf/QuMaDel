@@ -2,10 +2,9 @@ from datastructure.graph import Graph
 from datastructure.node import Node
 from algorithms.hill_climber import hill_climber
 from algorithms.kempe import Kempe
+from algorithms.greedy import Greedy
 from algorithms.randomizer import Randomizer
 from algorithms.helpers import *
-import csv
-import random
 import argparse
 
 schemes = {
@@ -30,7 +29,7 @@ parser.add_argument(
     "-clr", "--colors", choices=[1, 2, 3, 4, 5, 6, 7],
     help="Which cost scheme to calculate costs with", type=int)
 parser.add_argument(
-    "-n", "--n_opt", choices=[1, 2, 3],
+    "-n", "--n_opt", choices=[1, 2, 3, 4, 5],
     help="Number of nodes to change when using hill_climber_n_opt", type=int)
 parser.add_argument(
     "-cs", "--costscheme", choices=[1, 2, 3, 4],
@@ -46,7 +45,10 @@ scheme = schemes[args.costscheme]
 
 # from empty dict fill in random graph
 if args.algorithm == "random":
-    if not args.colors:
+    if not scheme:
+        print("Error:")
+        print("Please provide a costscheme with -cs [1,2,3,4]")
+    elif not colors:
         print("Error: ")
         print("please provide an amount of colors to use with -clr [1,2,3,4,5,6,7]")
     else:
@@ -56,13 +58,43 @@ if args.algorithm == "random":
         while not rand:
             rand = rando.randomize_graph(in_graph, colors)
 
+        cost = get_costs(rand, scheme)
+
+        print(f"Costs for this graph, with costsscheme {args.costscheme} are: {cost}")
         draw_colored_graph(rand)
 elif args.algorithm == "kempe":
-    kempe = Kempe(colors)
+    if not scheme:
+        print("Error:")
+        print("Please provide a costscheme with -cs [1,2,3,4]")
+    elif not colors:
+        print("Error: ")
+        print("please provide an amount of colors to use with -clr [1,2,3,4,5,6,7]")
+    else:
+        kempe = Kempe(colors, scheme)
 
-    kempe_graph = kempe.execute_kempe(in_graph)
+        kempe_graph = kempe.execute_kempe(in_graph)
 
-    draw_colored_graph(kempe_graph)
+        graph = kempe_graph[0]
+        cost = kempe_graph[1]
+        print(f"Costs for this graph, with costsscheme {args.costscheme} are: {cost}")
+        draw_colored_graph(graph)
+elif args.algorithm == "greedy":
+    if not scheme:
+        print("Error:")
+        print("Please provide a costscheme with -cs [1,2,3,4]")
+    elif not colors:
+        print("Error: ")
+        print("please provide an amount of colors to use with -clr [1,2,3,4,5,6,7]")
+    else:
+        greedy = Greedy(in_graph, scheme)
+
+        greedy_graph = greedy.greedy_fill()
+
+        graph = greedy_graph[0]
+        cost = greedy_graph[1]
+
+        print(f"Costs for this graph, with costsscheme {args.costscheme} are: {cost}")
+        draw_colored_graph(graph)
 elif args.algorithm == "hill_climber":
     if not scheme:
         print("Error:")
@@ -78,7 +110,9 @@ elif args.algorithm == "hill_climber":
 
         hc_graph = hc.hill_climber(random_graph)
         cost_list = hc_graph[1]
+        lowest_cost = cost_list[-1]
 
+        print(f"The lowest cost is {lowest_cost}")
         draw_cost_list(cost_list, args.country, "hill-climber")
         draw_colored_graph(hc_graph[0])
 elif args.algorithm == "hill_climber_n_opt":
@@ -99,7 +133,9 @@ elif args.algorithm == "hill_climber_n_opt":
 
         hc_graph = hc.hill_climber_n_opt(random_graph, n)
         cost_list = hc_graph[1]
+        lowest_cost = cost_list[-1]
 
+        print(f"The lowest cost is {lowest_cost}")
         draw_cost_list(cost_list, args.country, "hill climber " + str(n) + "-opt")
         draw_colored_graph(hc_graph[0])
 elif args.algorithm == "hill_climber_annealing":
@@ -117,41 +153,8 @@ elif args.algorithm == "hill_climber_annealing":
 
         hc_graph = hc.hill_climber_annealing(random_graph)
         cost_list = hc_graph[1]
+        lowest_cost = cost_list[-1]
 
+        print(f"The lowest cost is {lowest_cost}")
         draw_cost_list(cost_list, args.country, "hill-climber simulated annealing")
         draw_colored_graph(hc_graph[0])
-
-# rando = Randomizer()
-# rand = rando.randomize_graph(in_graph, 7)
-# while not rand:
-#     rand = rando.randomize_graph(in_graph, 7)
-#
-# print(f"randcost: {rand.costs()}")
-# draw_colored_graph(rand)
-#
-
-# out = hc.hill_climber_n_opt(rand, 2)
-# # print(out.nodes)
-# print(f"outcost: {out.costs()}")
-# draw_colored_graph(out)
-#
-# out_anna = hc.hill_climber_annealing(rand)
-# draw_colored_graph(out_anna)
-# print(f"anna_cost: {out_anna.costs()}")
-
-# # gc = graph_checker(in_graph)
-# counter = 0
-# while not in_graph.found():
-#     for key, node in in_graph.nodes.items():
-#         color = random.randint(1, 7)
-#         node.set_color(color)
-#
-#     in_graph.check_graph()
-#     counter += 1
-#
-# print(in_graph.check_graph())
-# print(counter)
-#
-#
-# for node in in_graph.nodes:
-#     print('name: ' + str(in_graph.nodes[node].name) + ' color: ' + str(in_graph.nodes[node].color))

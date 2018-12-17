@@ -2,6 +2,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from datastructure.graph import Graph
 import math
+import random
 import csv
 
 
@@ -45,6 +46,14 @@ def draw_colored_graph(graph):
     number_list = make_number_list(graph)
     color_list = number_to_color(number_list)
     draw(graph.original_graph, color_list)
+
+
+def apply_color(leftover_colors):
+    """
+    Applies a random color from given leftover colors.
+    """
+    color = random.choice(leftover_colors)
+    return color
 
 def draw_cost_list(cost_list, country, method):
     plt.plot(cost_list)

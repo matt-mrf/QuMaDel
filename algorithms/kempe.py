@@ -1,4 +1,4 @@
-from algorithms.helpers import diff
+from algorithms.helpers import diff, apply_color, get_costs
 import random
 import copy
 
@@ -8,12 +8,13 @@ class Kempe:
     Kempe's algorithm to k-color a graph
     """
 
-    def __init__(self, amount):
+    def __init__(self, amount, costscheme):
         """
         Takes an empty graph to color
         """
         self.amount = amount
         self.all_colors = list(range(1, amount))
+        self.costscheme = costscheme
 
     def execute_kempe(self, in_graph):
         """
@@ -75,18 +76,13 @@ class Kempe:
                     # save node to color later
                     uncolored_nodes.append(node_to_color)
                 else:
-                    new_color = self.apply_color(leftover_colors)
+                    new_color = apply_color(leftover_colors)
                     node_to_color.color = new_color
 
             for node in uncolored_nodes:
                 node.color = self.amount
 
             gc = out_graph.check_graph()
-        return out_graph
 
-    def apply_color(self, leftover_colors):
-        """
-        Applies a random color from given leftover colors.
-        """
-        color = random.choice(leftover_colors)
-        return color
+        cost = get_costs(out_graph, self.costscheme)
+        return [out_graph, cost]
