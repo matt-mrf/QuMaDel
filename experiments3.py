@@ -14,7 +14,7 @@ schemes = {
 4 : {1: 3, 2: 34, 3: 36, 4: 39, 5: 41, 6: 43, 7: 58}
 }
 
-dict = csv_to_dict("russia")
+dict = csv_to_dict("usa")
 in_graph = dict_to_graph(dict)
 
 # make random graph, and excute different hill climber algotrithms on it
@@ -24,7 +24,7 @@ rand = rando.randomize_graph(in_graph, 7)
 while not rand:
     rand = rando.randomize_graph(in_graph, 7)
 
-print("Russia")
+print("USA")
 # for scheme 1:
 cost_list1 = []
 cost_list1_x = []

@@ -41,11 +41,14 @@ dict = csv_to_dict(args.country)
 in_graph = dict_to_graph(dict)
 colors = args.colors
 n = args.n_opt
-scheme = schemes[args.costscheme]
+
+if args.costscheme:
+    scheme = schemes[args.costscheme]
+
 
 # from empty dict fill in random graph
 if args.algorithm == "random":
-    if not scheme:
+    if not args.costscheme:
         print("Error:")
         print("Please provide a costscheme with -cs [1,2,3,4]")
     elif not colors:
@@ -63,7 +66,7 @@ if args.algorithm == "random":
         print(f"Costs for this graph, with costsscheme {args.costscheme} are: {cost}")
         draw_colored_graph(rand)
 elif args.algorithm == "kempe":
-    if not scheme:
+    if not args.costscheme:
         print("Error:")
         print("Please provide a costscheme with -cs [1,2,3,4]")
     elif not colors:
@@ -79,7 +82,7 @@ elif args.algorithm == "kempe":
         print(f"Costs for this graph, with costsscheme {args.costscheme} are: {cost}")
         draw_colored_graph(graph)
 elif args.algorithm == "greedy":
-    if not scheme:
+    if not args.costscheme:
         print("Error:")
         print("Please provide a costscheme with -cs [1,2,3,4]")
     elif not colors:
@@ -96,7 +99,7 @@ elif args.algorithm == "greedy":
         print(f"Costs for this graph, with costsscheme {args.costscheme} are: {cost}")
         draw_colored_graph(graph)
 elif args.algorithm == "hill_climber":
-    if not scheme:
+    if not args.costscheme:
         print("Error:")
         print("Please provide a costscheme with -cs [1,2,3,4]")
     else:
@@ -108,7 +111,7 @@ elif args.algorithm == "hill_climber":
         while not random_graph:
             random_graph = rando.randomize_graph(in_graph, 7)
 
-        hc_graph = hc.Hill_climber(random_graph)
+        hc_graph = hc.hill_climber(random_graph)
         cost_list = hc_graph[1]
         lowest_cost = cost_list[-1]
 
@@ -116,7 +119,7 @@ elif args.algorithm == "hill_climber":
         draw_cost_list(cost_list, args.country, "hill-climber")
         draw_colored_graph(hc_graph[0])
 elif args.algorithm == "hill_climber_n_opt":
-    if not scheme:
+    if not args.costscheme:
         print("Error:")
         print("Please provide a costscheme with -cs [1,2,3,4]")
     elif not n:
@@ -139,7 +142,7 @@ elif args.algorithm == "hill_climber_n_opt":
         draw_cost_list(cost_list, args.country, "hill climber " + str(n) + "-opt")
         draw_colored_graph(hc_graph[0])
 elif args.algorithm == "hill_climber_annealing":
-    if not scheme:
+    if not args.costscheme:
         print("Error:")
         print("Please provide a costscheme with -cs [1,2,3,4]")
     else:
