@@ -66,7 +66,6 @@ Als we deze twee voor een land als Ukraine berekenen:
 losse punten: 1.3 * 10^21
 aanliggende punten: 2.2 * 10^19
 
-<<<<<<< HEAD:exploratie/README.md
 Invloed constaints op State Space
 Wanneer de constaints worden toegepast wordt de state space een stuk kleiner.
 Dit is ook van grote invloed op de Brute force, het getal is te groot om door te berekenen. Gaat te lang duren.
@@ -75,9 +74,7 @@ brute force bij losse punten = 4.1195394 × 10^12 jaar (400 miljard jaar)
 brute force bij aanliggende punten = 6.97152822 × 10^10 jaar (7 miljard jaar)
 
 (Als een berekening een 10e van een seconde duurt)
-=======
-=======
->>>>>>> 8c5dec4fc33021f4815291b07ec462840b0ee3a8:exploration/README.md
+
 Rusland:
 losse punten: 7^82 = 1.986 * 10^69
 aanliggende punten: 7.5 * 10^63
@@ -93,3 +90,40 @@ strict lowerbound = n * min(kostenschema(i))
 Onze 4 landen zijn allemaal met minimaal 4 kleuren te kleuren.
 strict upperbound = n * max(kostenschema(i))
 strict lowerbound = n * min(kostenschema(i))
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Resultaten costs (Bij 2500 iteraties en sample size van 3000)
+
+Hillclimber n-opt:          
+
+            n=1
+Min = 628
+Avg = 681.22
+Max = 755
+
+            n=2
+Min = 628
+Avg = 679.05
+Max = 744
+
+            n=3
+Min = 640
+Avg = 682.645
+Max = 740
+
+            n=4
+Min = 643
+Avg = 691/74
+Max = 756
+
+Hillclimber annealing:
+Min = 628
+Avg = 644,05
+Max = 695
+
+Het algoritme wat leidt tot de beste resultaten is de Hillclimber annealing. Hij komt altijd in een minimum en de avarage en de max zijn over het algemeeen ook lager dan de n-opt hillclimbers.
+
+Dit omdat de annealing werkt doormiddel van de temperatuur eerst hoog te maken en doordat de temp steeds lager word.

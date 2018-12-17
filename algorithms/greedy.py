@@ -7,8 +7,8 @@ class Greedy:
 
     def __init__(self, input, costscheme):
         """
-        An initializer takes a randomly generated input graph and costcheme
-        """"
+        An initializer takes a randomly generated input graph and costscheme
+        """
         self.input = input
         self.all_colors = [1, 2, 3, 4, 5, 6, 7]
         self.costscheme = costscheme
